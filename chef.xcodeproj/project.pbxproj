@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */; };
 		0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59891F7069EF0062F4D6 /* Main.storyboard */; };
-		0E8E598E1F7069EF0062F4D6 /* chef.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E598C1F7069EF0062F4D6 /* chef.xcdatamodeld */; };
 		0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */; };
 		0E8E59931F7069EF0062F4D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */; };
 		0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59BB1F72C0070062F4D6 /* Alarm.swift */; };
@@ -26,7 +25,6 @@
 		0E8E59821F7069EF0062F4D6 /* chef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E8E598A1F7069EF0062F4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0E8E598D1F7069EF0062F4D6 /* chef.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = chef.xcdatamodel; sourceTree = "<group>"; };
 		0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E8E59921F7069EF0062F4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E8E59941F7069EF0062F4D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */,
 				0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */,
 				0E8E59941F7069EF0062F4D6 /* Info.plist */,
-				0E8E598C1F7069EF0062F4D6 /* chef.xcdatamodeld */,
 				0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */,
 				0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */,
 			);
@@ -262,7 +259,6 @@
 				0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */,
 				0E8E59C51F73D8C60062F4D6 /* DashboardViewController.swift in Sources */,
 				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
-				0E8E598E1F7069EF0062F4D6 /* chef.xcdatamodeld in Sources */,
 				0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */,
 				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
 				0E8E59BE1F72C0CD0062F4D6 /* Recipe.swift in Sources */,
@@ -434,19 +430,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		0E8E598C1F7069EF0062F4D6 /* chef.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				0E8E598D1F7069EF0062F4D6 /* chef.xcdatamodel */,
-			);
-			currentVersion = 0E8E598D1F7069EF0062F4D6 /* chef.xcdatamodel */;
-			path = chef.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 0E8E597A1F7069EF0062F4D6 /* Project object */;
 }
