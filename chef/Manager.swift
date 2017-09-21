@@ -11,7 +11,7 @@ import UIKit
 class Manager: NSObject {
     static let shared = Manager()
     
-    func createRecipe(recipe: Recipe) {
+    func createRecipe(_ recipe: Recipe) {
         
     }
 }

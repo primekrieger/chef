@@ -12,28 +12,22 @@ import RealmSwift
 class PersistenceManager: NSObject {
     static let shared = PersistenceManager()
     
-    var realm: Realm?
-    
-    private func getRealm() -> Realm? {
-        if realm != nil {
-            return realm
-        } else {
-            realm = createNewRealm()
-            return realm
-        }
-    }
-    
-    private func createNewRealm() -> Realm? {
+    func save(_ object: Object) {
         do {
-            let newRealm = try Realm()
-            return newRealm
+            let realm = try Realm()
+            try realm.write {
+                realm.add(object)
+            }
         } catch let error as NSError {
             print(error)
-            return nil
         }
     }
     
-    func saveRealmObject(object: Object) {
+    func getRecipes(active: Bool) -> Results<Recipe> {
+        let realm = try! Realm()
+        
+        return realm.objects(Recipe.self).filter("active = \(active.description)")
         
     }
+    
 }

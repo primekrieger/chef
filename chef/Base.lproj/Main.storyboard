@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--home-->
+        <!--Dashboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="chef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DashboardViewController" customModule="chef" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,6 +27,9 @@
                                     <segment title="Active"/>
                                     <segment title="Inactive"/>
                                 </segments>
+                                <connections>
+                                    <action selector="recipesSegmentedControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="y5G-Pq-5OP"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SUg-jq-4fm">
                                 <rect key="frame" x="0.0" y="132" width="375" height="499"/>
@@ -104,13 +107,11 @@
                             <constraint firstItem="J7i-Cu-fTd" firstAttribute="top" secondItem="dge-wW-a9N" secondAttribute="bottom" id="uoR-ek-pCI"/>
                             <constraint firstItem="J7i-Cu-fTd" firstAttribute="top" secondItem="SUg-jq-4fm" secondAttribute="bottom" id="wmR-aL-9Wb"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dge-wW-a9N"/>
-                            </mask>
-                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="home" id="WEE-2f-3t3"/>
+                    <navigationItem key="navigationItem" id="WEE-2f-3t3"/>
+                    <connections>
+                        <outlet property="recipesTableView" destination="dge-wW-a9N" id="xme-OG-U1z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
