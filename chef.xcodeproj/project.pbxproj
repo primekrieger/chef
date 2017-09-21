@@ -13,6 +13,10 @@
 		0E8E598E1F7069EF0062F4D6 /* chef.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E598C1F7069EF0062F4D6 /* chef.xcdatamodeld */; };
 		0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */; };
 		0E8E59931F7069EF0062F4D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */; };
+		0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59BB1F72C0070062F4D6 /* Alarm.swift */; };
+		0E8E59BE1F72C0CD0062F4D6 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59BD1F72C0CD0062F4D6 /* Recipe.swift */; };
+		0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C01F72C1CD0062F4D6 /* Manager.swift */; };
+		0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C21F72C3160062F4D6 /* PersistenceManager.swift */; };
 		BBE71BA48C3E6B342D58F042 /* Pods_chef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9479903F73E01DAAB8171CFC /* Pods_chef.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,10 @@
 		0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E8E59921F7069EF0062F4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E8E59941F7069EF0062F4D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E8E59BB1F72C0070062F4D6 /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		0E8E59BD1F72C0CD0062F4D6 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		0E8E59C01F72C1CD0062F4D6 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		0E8E59C21F72C3160062F4D6 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		9479903F73E01DAAB8171CFC /* Pods_chef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0690EC822B887E6B03552A1 /* Pods-chef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.release.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.release.xcconfig"; sourceTree = "<group>"; };
 		EDB767223E1C25C5A386A83F /* Pods-chef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +71,8 @@
 		0E8E59841F7069EF0062F4D6 /* chef */ = {
 			isa = PBXGroup;
 			children = (
+				0E8E59BF1F72C1380062F4D6 /* Managers */,
+				0E8E59BA1F72BF940062F4D6 /* Models */,
 				0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */,
 				0E8E59871F7069EF0062F4D6 /* ViewController.swift */,
 				0E8E59891F7069EF0062F4D6 /* Main.storyboard */,
@@ -72,6 +82,24 @@
 				0E8E598C1F7069EF0062F4D6 /* chef.xcdatamodeld */,
 			);
 			path = chef;
+			sourceTree = "<group>";
+		};
+		0E8E59BA1F72BF940062F4D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E59BB1F72C0070062F4D6 /* Alarm.swift */,
+				0E8E59BD1F72C0CD0062F4D6 /* Recipe.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0E8E59BF1F72C1380062F4D6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E59C01F72C1CD0062F4D6 /* Manager.swift */,
+				0E8E59C21F72C3160062F4D6 /* PersistenceManager.swift */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 		647933795C71690D10947A1B /* Pods */ = {
@@ -224,8 +252,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E8E59881F7069EF0062F4D6 /* ViewController.swift in Sources */,
+				0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */,
+				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
 				0E8E598E1F7069EF0062F4D6 /* chef.xcdatamodeld in Sources */,
 				0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */,
+				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
+				0E8E59BE1F72C0CD0062F4D6 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +423,7 @@
 				0E8E59991F7069EF0062F4D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
