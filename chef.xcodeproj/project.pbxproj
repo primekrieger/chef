@@ -18,6 +18,7 @@
 		0E8E59C51F73D8C60062F4D6 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */; };
 		0E8E59C81F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */; };
 		0E8E59C91F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */; };
+		0E8E5A0A1F7410330062F4D6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A091F7410330062F4D6 /* Enums.swift */; };
 		BBE71BA48C3E6B342D58F042 /* Pods_chef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9479903F73E01DAAB8171CFC /* Pods_chef.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
+		0E8E5A091F7410330062F4D6 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		9479903F73E01DAAB8171CFC /* Pods_chef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0690EC822B887E6B03552A1 /* Pods-chef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.release.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.release.xcconfig"; sourceTree = "<group>"; };
 		EDB767223E1C25C5A386A83F /* Pods-chef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.debug.xcconfig"; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				0E8E59941F7069EF0062F4D6 /* Info.plist */,
 				0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */,
 				0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */,
+				0E8E5A091F7410330062F4D6 /* Enums.swift */,
 			);
 			path = chef;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
 				0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */,
 				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
+				0E8E5A0A1F7410330062F4D6 /* Enums.swift in Sources */,
 				0E8E59BE1F72C0CD0062F4D6 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

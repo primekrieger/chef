@@ -10,23 +10,37 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
+    enum RecipesSegmentedControlState: Int {
+        case active, inactive
+    }
+    
     @IBOutlet weak var recipesTableView: UITableView!
     
-
+    var recipesToDisplay = Manager.shared.getRecipes(filter: .active)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         recipesTableView.register(UINib(nibName: RecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: RecipeDashboardTableViewCell.cellReuseIdentifier)
     }
     
     @IBAction func recipesSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        let recipesSegmentedControlState = RecipesSegmentedControlState(rawValue: sender.selectedSegmentIndex)!
+        
+        switch recipesSegmentedControlState {
+        case .active:
+            recipesToDisplay = Manager.shared.getRecipes(filter: .active)
+        case .inactive:
+            recipesToDisplay = Manager.shared.getRecipes(filter: .inactive)
+        }
+        
+        recipesTableView.reloadData()
     }
-    
 
 }
 
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return recipesToDisplay.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

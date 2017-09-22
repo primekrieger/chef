@@ -23,11 +23,20 @@ class PersistenceManager: NSObject {
         }
     }
     
-    func getRecipes(active: Bool) -> Results<Recipe> {
+    func getRecipes(filter: RecipeFilter) -> Results<Recipe> {
+        let queryString: String
         let realm = try! Realm()
         
-        return realm.objects(Recipe.self).filter("active = \(active.description)")
+        switch filter {
+        case .all:
+            return realm.objects(Recipe.self)
+        case .active:
+            queryString = "active = true"
+        case .inactive:
+            queryString = "active = false"
+        }
         
+        return realm.objects(Recipe.self).filter(queryString)
     }
     
 }

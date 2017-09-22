@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import RealmSwift
 
 class Manager: NSObject {
     static let shared = Manager()
     
     func createRecipe(_ recipe: Recipe) {
-        
+        PersistenceManager.shared.save(recipe)
+    }
+    
+    func getRecipes(filter: RecipeFilter) -> Results<Recipe> {
+        return PersistenceManager.shared.getRecipes(filter: filter)
     }
 }

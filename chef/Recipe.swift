@@ -10,5 +10,5 @@ import UIKit
 import RealmSwift
 
 class Recipe: Object {
-    
+    dynamic var active = true
 }
