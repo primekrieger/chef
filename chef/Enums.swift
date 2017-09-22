@@ -9,3 +9,7 @@
 enum RecipeFilter {
     case all, active, inactive
 }
+
+enum RecipeType: Int {
+    case lazySaving = 1001
+}

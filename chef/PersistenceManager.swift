@@ -12,11 +12,11 @@ import RealmSwift
 class PersistenceManager: NSObject {
     static let shared = PersistenceManager()
     
-    func save(_ object: Object) {
+    func save(_ objects: [Object]) {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(object)
+                realm.add(objects)
             }
         } catch let error as NSError {
             print(error)
@@ -37,6 +37,11 @@ class PersistenceManager: NSObject {
         }
         
         return realm.objects(Recipe.self).filter(queryString)
+    }
+    
+    func getAvailableRecipes() -> Results<AvailableRecipe> {
+        let realm = try! Realm()
+        return realm.objects(AvailableRecipe.self)
     }
     
 }
