@@ -145,7 +145,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="availableRecipesTableView" destination="yxl-po-mMJ" id="LWm-Dr-yYT"/>
+                        <outlet property="recipeTemplatesTableView" destination="yxl-po-mMJ" id="5l4-0d-NjI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAF-6n-b0X" userLabel="First Responder" sceneMemberID="firstResponder"/>

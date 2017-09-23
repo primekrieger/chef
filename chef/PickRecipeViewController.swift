@@ -10,23 +10,23 @@ import UIKit
 
 class PickRecipeViewController: UIViewController {
     
-    @IBOutlet weak var availableRecipesTableView: UITableView!
+    @IBOutlet weak var recipeTemplatesTableView: UITableView!
     
-    let availableRecipes = Manager.shared.getAvailableRecipes()
+    let recipeTemplates = Manager.shared.getRecipeTemplates()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        availableRecipesTableView.register(UINib(nibName: AvailableRecipeTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: AvailableRecipeTableViewCell.cellReuseIdentifier)
+        recipeTemplatesTableView.register(UINib(nibName: RecipeTemplateTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier)
     }
 }
 
 extension PickRecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return availableRecipes.count
+        return recipeTemplates.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: AvailableRecipeTableViewCell.cellReuseIdentifier) as! AvailableRecipeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier) as! RecipeTemplateTableViewCell
         return cell
     }
 }

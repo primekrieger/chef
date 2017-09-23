@@ -16,13 +16,13 @@ class RecipeDetailsFormViewController: UIViewController {
     @IBOutlet weak var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
     
     var recipe: Recipe?
-    var availableRecipe: AvailableRecipe?
+    var recipeTemplate: RecipeTemplate?
     
     var isCreating = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        isCreating = availableRecipe != nil
+        isCreating = recipeTemplate != nil
     }
     
     private func compressHeaderView() {

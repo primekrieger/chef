@@ -1,17 +1,17 @@
 //
-//  AvailableRecipeTableViewCell.swift
+//  RecipeTemplateTableViewCell.swift
 //  chef
 //
-//  Created by Diwakar Kamboj on 22/09/17.
+//  Created by Diwakar Kamboj on 23/09/17.
 //  Copyright © 2017 Diwakar Kamboj. All rights reserved.
 //
 
 import UIKit
 
-class AvailableRecipeTableViewCell: UITableViewCell {
+class RecipeTemplateTableViewCell: UITableViewCell {
     
-    static let nibName = "AvailableRecipeTableViewCell"
-    static let cellReuseIdentifier = "availableRecipeTableViewCell"
+    static let nibName = "RecipeTemplateTableViewCell"
+    static let cellReuseIdentifier = "recipeTemplateTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

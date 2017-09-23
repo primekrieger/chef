@@ -20,8 +20,8 @@ class Manager: NSObject {
         return PersistenceManager.shared.getRecipes(filter: filter)
     }
     
-    func getAvailableRecipes() -> Results<AvailableRecipe> {
-        return PersistenceManager.shared.getAvailableRecipes()
+    func getRecipeTemplates() -> Results<RecipeTemplate> {
+        return PersistenceManager.shared.getRecipeTemplates()
     }
     
     func createMockData(_ objects: [Object]) {

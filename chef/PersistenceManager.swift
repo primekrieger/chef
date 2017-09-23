@@ -39,9 +39,9 @@ class PersistenceManager: NSObject {
         return realm.objects(Recipe.self).filter(queryString)
     }
     
-    func getAvailableRecipes() -> Results<AvailableRecipe> {
+    func getRecipeTemplates() -> Results<RecipeTemplate> {
         let realm = try! Realm()
-        return realm.objects(AvailableRecipe.self)
+        return realm.objects(RecipeTemplate.self)
     }
     
 }

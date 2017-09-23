@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupMockData() {
-        let lazySavingRecipe = AvailableRecipe(type: .lazySaving,
+        let lazySavingRecipe = RecipeTemplate(type: .lazySaving,
                                                shortDescription: "Pay up each time you snooze on a wake up alarm. Guilty Pleasures.")
         
         Manager.shared.createMockData([lazySavingRecipe])
