@@ -22,6 +22,9 @@
 		0E8E5A0C1F7552AB0062F4D6 /* PickRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */; };
 		0E8E5A0E1F75534B0062F4D6 /* AvailableRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A0D1F75534B0062F4D6 /* AvailableRecipe.swift */; };
 		0E8E5A141F7560020062F4D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A131F7560020062F4D6 /* Constants.swift */; };
+		0E8E5A211F756BC40062F4D6 /* AvailableRecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A1F1F756BC40062F4D6 /* AvailableRecipeTableViewCell.swift */; };
+		0E8E5A221F756BC40062F4D6 /* AvailableRecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E5A201F756BC40062F4D6 /* AvailableRecipeTableViewCell.xib */; };
+		0E8E5A241F75703A0062F4D6 /* RecipeDetailsFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A231F75703A0062F4D6 /* RecipeDetailsFormViewController.swift */; };
 		BBE71BA48C3E6B342D58F042 /* Pods_chef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9479903F73E01DAAB8171CFC /* Pods_chef.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +46,9 @@
 		0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickRecipeViewController.swift; sourceTree = "<group>"; };
 		0E8E5A0D1F75534B0062F4D6 /* AvailableRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableRecipe.swift; sourceTree = "<group>"; };
 		0E8E5A131F7560020062F4D6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0E8E5A1F1F756BC40062F4D6 /* AvailableRecipeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableRecipeTableViewCell.swift; sourceTree = "<group>"; };
+		0E8E5A201F756BC40062F4D6 /* AvailableRecipeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvailableRecipeTableViewCell.xib; sourceTree = "<group>"; };
+		0E8E5A231F75703A0062F4D6 /* RecipeDetailsFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsFormViewController.swift; sourceTree = "<group>"; };
 		9479903F73E01DAAB8171CFC /* Pods_chef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0690EC822B887E6B03552A1 /* Pods-chef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.release.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.release.xcconfig"; sourceTree = "<group>"; };
 		EDB767223E1C25C5A386A83F /* Pods-chef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,18 +88,13 @@
 			isa = PBXGroup;
 			children = (
 				0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */,
-				0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */,
-				0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */,
-				0E8E59BF1F72C1380062F4D6 /* Managers */,
-				0E8E59BA1F72BF940062F4D6 /* Models */,
-				0E8E59891F7069EF0062F4D6 /* Main.storyboard */,
-				0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */,
-				0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */,
-				0E8E59941F7069EF0062F4D6 /* Info.plist */,
-				0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */,
-				0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */,
-				0E8E5A091F7410330062F4D6 /* Enums.swift */,
 				0E8E5A131F7560020062F4D6 /* Constants.swift */,
+				0E8E5A091F7410330062F4D6 /* Enums.swift */,
+				0E8E59BA1F72BF940062F4D6 /* Models */,
+				0E8E59BF1F72C1380062F4D6 /* Managers */,
+				0E8E5A1D1F756ACD0062F4D6 /* ViewControllers */,
+				0E8E5A1E1F756B000062F4D6 /* UI */,
+				0E8E59941F7069EF0062F4D6 /* Info.plist */,
 			);
 			path = chef;
 			sourceTree = "<group>";
@@ -115,6 +116,30 @@
 				0E8E59C21F72C3160062F4D6 /* PersistenceManager.swift */,
 			);
 			name = Managers;
+			sourceTree = "<group>";
+		};
+		0E8E5A1D1F756ACD0062F4D6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */,
+				0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */,
+				0E8E5A231F75703A0062F4D6 /* RecipeDetailsFormViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0E8E5A1E1F756B000062F4D6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */,
+				0E8E59891F7069EF0062F4D6 /* Main.storyboard */,
+				0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */,
+				0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */,
+				0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */,
+				0E8E5A1F1F756BC40062F4D6 /* AvailableRecipeTableViewCell.swift */,
+				0E8E5A201F756BC40062F4D6 /* AvailableRecipeTableViewCell.xib */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		647933795C71690D10947A1B /* Pods */ = {
@@ -200,6 +225,7 @@
 				0E8E59C91F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib in Resources */,
 				0E8E59931F7069EF0062F4D6 /* LaunchScreen.storyboard in Resources */,
 				0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */,
+				0E8E5A221F756BC40062F4D6 /* AvailableRecipeTableViewCell.xib in Resources */,
 				0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,12 +298,14 @@
 				0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */,
 				0E8E59C51F73D8C60062F4D6 /* DashboardViewController.swift in Sources */,
 				0E8E5A0E1F75534B0062F4D6 /* AvailableRecipe.swift in Sources */,
+				0E8E5A211F756BC40062F4D6 /* AvailableRecipeTableViewCell.swift in Sources */,
 				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
 				0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */,
 				0E8E5A0C1F7552AB0062F4D6 /* PickRecipeViewController.swift in Sources */,
 				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
 				0E8E5A0A1F7410330062F4D6 /* Enums.swift in Sources */,
 				0E8E59BE1F72C0CD0062F4D6 /* Recipe.swift in Sources */,
+				0E8E5A241F75703A0062F4D6 /* RecipeDetailsFormViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
