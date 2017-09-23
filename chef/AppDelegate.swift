@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 //        if firstLaunch
         setupMockData()
-        
         return true
     }
 
@@ -46,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func setupMockData() {
         let lazySavingRecipe = AvailableRecipe(type: .lazySaving,
-                                               name: "Lazy Savings",
                                                shortDescription: "Pay up each time you snooze on a wake up alarm. Guilty Pleasures.")
         
         Manager.shared.createMockData([lazySavingRecipe])

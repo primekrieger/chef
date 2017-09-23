@@ -10,6 +10,24 @@ enum RecipeFilter {
     case all, active, inactive
 }
 
+enum RecipeDetailsFormCellType {
+    case amountTextField, alarmTimePicker, alarmRepetitionSelector
+}
+
 enum RecipeType: Int {
     case lazySaving = 1001
+    
+    var displayName: String {
+        switch self {
+        case .lazySaving:
+            return "Lazy Saving"
+        }
+    }
+    
+    var detailsFormCells: [RecipeDetailsFormCellType] {
+        switch self {
+        case .lazySaving:
+            return [.amountTextField, .alarmTimePicker, .alarmRepetitionSelector]
+        }
+    }
 }
