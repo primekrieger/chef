@@ -10,12 +10,12 @@ import UIKit
 import RealmSwift
 
 class RecipeTemplate: Object {
-    dynamic var type = 0
+    dynamic var templateID = 0
     dynamic var shortDescription = ""
     
     convenience init(type: RecipeType, shortDescription: String) {
         self.init()
-        self.type = type.rawValue
+        templateID = type.rawValue
         self.shortDescription = shortDescription
     }
 }

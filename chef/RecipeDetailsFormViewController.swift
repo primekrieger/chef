@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol RecipeDetailsFormCellProtocol {
+    var isValueValid: Bool { get }
+}
+
 class RecipeDetailsFormViewController: UIViewController {
     
     @IBOutlet weak var recipeNameLabel: UILabel!
@@ -18,11 +22,16 @@ class RecipeDetailsFormViewController: UIViewController {
     var recipe: Recipe?
     var recipeTemplate: RecipeTemplate?
     
+    // Remove if not really required
     var isCreating = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        isCreating = recipeTemplate != nil
+        if recipe == nil {
+            isCreating = true
+            recipe = Recipe()
+            recipe!.templateID = recipeTemplate!.templateID
+        }
     }
     
     private func compressHeaderView() {
@@ -30,4 +39,14 @@ class RecipeDetailsFormViewController: UIViewController {
         recipeNameLabelBottomSpaceConstraint.constant = 10
     }
 
+}
+
+extension RecipeDetailsFormViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return recipe!.formCells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }

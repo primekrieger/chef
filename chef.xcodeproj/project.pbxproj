@@ -25,6 +25,8 @@
 		0E8E5A261F769B280062F4D6 /* RecipeTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A251F769B280062F4D6 /* RecipeTemplate.swift */; };
 		0E8E5A2B1F769D090062F4D6 /* RecipeTemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */; };
 		0E8E5A2C1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */; };
+		0E8E5A321F76F5990062F4D6 /* TextInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A301F76F5990062F4D6 /* TextInputTableViewCell.swift */; };
+		0E8E5A331F76F5990062F4D6 /* TextInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E5A311F76F5990062F4D6 /* TextInputTableViewCell.xib */; };
 		BBE71BA48C3E6B342D58F042 /* Pods_chef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9479903F73E01DAAB8171CFC /* Pods_chef.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		0E8E5A251F769B280062F4D6 /* RecipeTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTemplate.swift; sourceTree = "<group>"; };
 		0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTemplateTableViewCell.swift; sourceTree = "<group>"; };
 		0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTemplateTableViewCell.xib; sourceTree = "<group>"; };
+		0E8E5A301F76F5990062F4D6 /* TextInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputTableViewCell.swift; sourceTree = "<group>"; };
+		0E8E5A311F76F5990062F4D6 /* TextInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextInputTableViewCell.xib; sourceTree = "<group>"; };
 		9479903F73E01DAAB8171CFC /* Pods_chef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0690EC822B887E6B03552A1 /* Pods-chef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.release.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.release.xcconfig"; sourceTree = "<group>"; };
 		EDB767223E1C25C5A386A83F /* Pods-chef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.debug.xcconfig"; sourceTree = "<group>"; };
@@ -138,8 +142,18 @@
 				0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */,
 				0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */,
 				0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */,
+				0E8E5A2F1F76F4310062F4D6 /* RecipeDetailsFormCells */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		0E8E5A2F1F76F4310062F4D6 /* RecipeDetailsFormCells */ = {
+			isa = PBXGroup;
+			children = (
+				0E8E5A301F76F5990062F4D6 /* TextInputTableViewCell.swift */,
+				0E8E5A311F76F5990062F4D6 /* TextInputTableViewCell.xib */,
+			);
+			name = RecipeDetailsFormCells;
 			sourceTree = "<group>";
 		};
 		647933795C71690D10947A1B /* Pods */ = {
@@ -227,6 +241,7 @@
 				0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */,
 				0E8E5A2C1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib in Resources */,
 				0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */,
+				0E8E5A331F76F5990062F4D6 /* TextInputTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +311,7 @@
 				0E8E5A2B1F769D090062F4D6 /* RecipeTemplateTableViewCell.swift in Sources */,
 				0E8E59C81F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift in Sources */,
 				0E8E5A141F7560020062F4D6 /* Constants.swift in Sources */,
+				0E8E5A321F76F5990062F4D6 /* TextInputTableViewCell.swift in Sources */,
 				0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */,
 				0E8E59C51F73D8C60062F4D6 /* DashboardViewController.swift in Sources */,
 				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
