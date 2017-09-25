@@ -31,6 +31,7 @@ class RecipeDetailsFormViewController: UIViewController {
         super.viewDidLoad()
         
         recipeDetailsFormTableView.register(UINib(nibName: TextFieldTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.cellReuseIdentifier)
+        recipeDetailsFormTableView.register(UINib(nibName: DayRepetitionSelectorTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier)
         
         if recipe == nil {
             isCreatingNewRecipe = true
@@ -54,16 +55,22 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch recipe!.formFields[indexPath.row] {
+        let field = recipe!.formFields[indexPath.row]
+        switch field {
         case .amountTextField:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellReuseIdentifier) as! TextFieldTableViewCell
             cell.delegate = self
+            cell.field = field
             cell.value = recipeFormModel.amount
             return cell
         case .alarmTimePicker:
             break
         case .alarmRepetitionSelector:
-            break
+            let cell = tableView.dequeueReusableCell(withIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier) as! DayRepetitionSelectorTableViewCell
+            cell.delegate = self
+            cell.field = field
+            cell.value = recipeFormModel.alarmRepetition
+            return cell
         }
         return UITableViewCell()
     }
@@ -77,7 +84,7 @@ extension RecipeDetailsFormViewController: RecipeDetailsFormCellDelegate {
         case .alarmTimePicker:
             break
         case .alarmRepetitionSelector:
-            break
+            recipeFormModel.alarmRepetition = newValue as! [Bool]
         }
     }
 }

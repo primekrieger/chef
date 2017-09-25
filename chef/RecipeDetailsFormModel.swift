@@ -12,6 +12,7 @@ class RecipeDetailsFormModel: NSObject {
     private let fields: [RecipeDetailsFormField]
     
     var amount = ""
+    var alarmRepetition = [Bool](repeating: false, count: 7)
     
     init(withExistingRecipe recipe: Recipe) {
         self.fields = recipe.formFields

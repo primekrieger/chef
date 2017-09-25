@@ -159,7 +159,7 @@
         <!--Recipe Details Form View Controller-->
         <scene sceneID="G3k-D7-HfH">
             <objects>
-                <viewController id="JUz-hg-C5R" customClass="RecipeDetailsFormViewController" customModule="chef" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeDetailsFormViewController" id="JUz-hg-C5R" customClass="RecipeDetailsFormViewController" customModule="chef" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IgG-h7-G6s"/>
                         <viewControllerLayoutGuide type="bottom" id="ENh-86-vzC"/>

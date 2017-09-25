@@ -1,5 +1,5 @@
 //
-//  TextFieldTableViewCell.swift
+//  DayRepetitionSelectorTableViewCell.swift
 //  chef
 //
 //  Created by Diwakar Kamboj on 25/09/17.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
+class DayRepetitionSelectorTableViewCell: UITableViewCell {
     
-    static let nibName = "TextFieldTableViewCell"
-    static let cellReuseIdentifier = "textFieldTableViewCell"
+    static let nibName = "DayRepetitionSelectorTableViewCell"
+    static let cellReuseIdentifier = "dayRepetitionSelectorTableViewCell"
     
     weak var delegate: RecipeDetailsFormCellDelegate!
     var field: RecipeDetailsFormField!
-    var value: String!
-
+    var value: [Bool]!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,5 +27,12 @@ class TextFieldTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func weekdayButtonTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        value[sender.tag] = sender.isSelected
+        delegate.valueChanged(forField: field, newValue: value)
+    }
+    
     
 }
