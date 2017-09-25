@@ -227,6 +227,7 @@
                     </view>
                     <connections>
                         <outlet property="recipeDescriptionLabel" destination="JHe-I6-Izc" id="Tjf-Tm-lCe"/>
+                        <outlet property="recipeDetailsFormTableView" destination="eXn-kw-49t" id="Qnl-Be-za1"/>
                         <outlet property="recipeNameLabel" destination="W5P-3E-69v" id="daJ-4U-9Iv"/>
                         <outlet property="recipeNameLabelBottomSpaceConstraint" destination="KcV-sw-qwK" id="bvR-0y-hcN"/>
                     </connections>

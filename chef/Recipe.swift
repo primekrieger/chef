@@ -21,13 +21,14 @@ class Recipe: Object {
         }
     }
     
-    var formCells: [RecipeDetailsFormCellType] {
+    var formFields: [RecipeDetailsFormField] {
         switch type {
         case .lazySaving:
-            return [.textInput, .alarmTimePicker, .alarmRepetitionSelector]
+            return [.amountTextField, .alarmTimePicker, .alarmRepetitionSelector]
         }
     }
     
+    dynamic var amount = 0
     dynamic var active = true
     dynamic var templateID = 0
 }

@@ -10,8 +10,8 @@ enum RecipeFilter {
     case all, active, inactive
 }
 
-enum RecipeDetailsFormCellType {
-    case textInput, alarmTimePicker, alarmRepetitionSelector
+enum RecipeDetailsFormField {
+    case amountTextField, alarmTimePicker, alarmRepetitionSelector
 }
 
 enum RecipeType: Int {
