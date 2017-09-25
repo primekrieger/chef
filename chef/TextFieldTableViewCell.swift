@@ -17,9 +17,11 @@ class TextFieldTableViewCell: UITableViewCell {
     var field: RecipeDetailsFormField!
     var value: String!
 
+    @IBOutlet weak var textField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        textField.text = value
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,5 +29,10 @@ class TextFieldTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+        delegate.valueChanged(forField: field, newValue: sender.text!)
+    }
+    
     
 }

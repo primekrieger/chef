@@ -31,6 +31,7 @@ class RecipeDetailsFormViewController: UIViewController {
         super.viewDidLoad()
         
         recipeDetailsFormTableView.register(UINib(nibName: TextFieldTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.cellReuseIdentifier)
+        recipeDetailsFormTableView.register(UINib(nibName: TimePickerTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TimePickerTableViewCell.cellReuseIdentifier)
         recipeDetailsFormTableView.register(UINib(nibName: DayRepetitionSelectorTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier)
         
         if recipe == nil {
@@ -64,7 +65,11 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
             cell.value = recipeFormModel.amount
             return cell
         case .alarmTimePicker:
-            break
+            let cell = tableView.dequeueReusableCell(withIdentifier: TimePickerTableViewCell.cellReuseIdentifier) as! TimePickerTableViewCell
+            cell.delegate = self
+            cell.field = field
+            cell.value = recipeFormModel.alarmTime
+            return cell
         case .alarmRepetitionSelector:
             let cell = tableView.dequeueReusableCell(withIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier) as! DayRepetitionSelectorTableViewCell
             cell.delegate = self
@@ -72,7 +77,6 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
             cell.value = recipeFormModel.alarmRepetition
             return cell
         }
-        return UITableViewCell()
     }
 }
 
@@ -82,7 +86,7 @@ extension RecipeDetailsFormViewController: RecipeDetailsFormCellDelegate {
         case .amountTextField:
             recipeFormModel.amount = newValue as! String
         case .alarmTimePicker:
-            break
+            recipeFormModel.alarmTime = newValue as! Date
         case .alarmRepetitionSelector:
             recipeFormModel.alarmRepetition = newValue as! [Bool]
         }

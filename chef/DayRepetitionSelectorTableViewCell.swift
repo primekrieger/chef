@@ -17,9 +17,13 @@ class DayRepetitionSelectorTableViewCell: UITableViewCell {
     var field: RecipeDetailsFormField!
     var value: [Bool]!
     
+    @IBOutlet var dayButtons: [UIButton]!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        for dayButton in dayButtons {
+            dayButton.isSelected = value[dayButton.tag]
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

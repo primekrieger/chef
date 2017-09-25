@@ -121,6 +121,15 @@
                     <constraint firstItem="BPV-rl-g4V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hd4-Fe-sFW"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outletCollection property="dayButtons" destination="r8P-M8-i0n" collectionClass="NSMutableArray" id="kjw-yF-00s"/>
+                <outletCollection property="dayButtons" destination="8mv-FX-UWt" collectionClass="NSMutableArray" id="FSW-3Z-XEq"/>
+                <outletCollection property="dayButtons" destination="uBZ-iO-VHK" collectionClass="NSMutableArray" id="6YF-Cg-cvV"/>
+                <outletCollection property="dayButtons" destination="CAK-4K-6KM" collectionClass="NSMutableArray" id="7ik-Ej-yTb"/>
+                <outletCollection property="dayButtons" destination="fef-4s-g99" collectionClass="NSMutableArray" id="CvI-QX-7kV"/>
+                <outletCollection property="dayButtons" destination="g1q-wF-wnq" collectionClass="NSMutableArray" id="4xm-Ge-dO4"/>
+                <outletCollection property="dayButtons" destination="DTb-T4-9W6" collectionClass="NSMutableArray" id="hFb-dg-vTF"/>
+            </connections>
             <point key="canvasLocation" x="63" y="141"/>
         </tableViewCell>
     </objects>

@@ -31,4 +31,5 @@ class Recipe: Object {
     dynamic var amount = 0
     dynamic var active = true
     dynamic var templateID = 0
+    dynamic var alarm: Alarm?
 }

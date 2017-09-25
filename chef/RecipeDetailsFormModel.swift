@@ -12,7 +12,8 @@ class RecipeDetailsFormModel: NSObject {
     private let fields: [RecipeDetailsFormField]
     
     var amount = ""
-    var alarmRepetition = [Bool](repeating: false, count: 7)
+    var alarmTime = Date()
+    var alarmRepetition = [Bool](repeating: true, count: 7)
     
     init(withExistingRecipe recipe: Recipe) {
         self.fields = recipe.formFields
@@ -22,9 +23,14 @@ class RecipeDetailsFormModel: NSObject {
             case .amountTextField:
                 amount = String(recipe.amount)
             case .alarmTimePicker:
-                break
+                var dateComponents = DateComponents()
+                dateComponents.hour = recipe.alarm!.hour
+                dateComponents.minute = recipe.alarm!.minute
+                alarmTime = Calendar.current.date(from: dateComponents)!
             case .alarmRepetitionSelector:
-                break
+                for i in 0..<alarmRepetition.count {
+                    alarmRepetition[i] = recipe.alarm!.shouldRepeatOnDays[i].value
+                }
             }
         }
     }

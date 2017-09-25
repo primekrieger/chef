@@ -10,5 +10,11 @@ import UIKit
 import RealmSwift
 
 class Alarm: Object {
-    
+    dynamic var hour = 0
+    dynamic var minute = 0
+    let shouldRepeatOnDays = List<RealmBool>()
+}
+
+class RealmBool: Object {
+    dynamic var value = false
 }
