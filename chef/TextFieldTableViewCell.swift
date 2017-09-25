@@ -13,15 +13,19 @@ class TextFieldTableViewCell: UITableViewCell {
     static let nibName = "TextFieldTableViewCell"
     static let cellReuseIdentifier = "textFieldTableViewCell"
     
-    weak var delegate: RecipeDetailsFormCellDelegate!
-    var field: RecipeDetailsFormField!
-    var value: String!
+    weak private var delegate: RecipeDetailsFormCellDelegate!
+    private var field: RecipeDetailsFormField!
 
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak private var textField: UITextField!
+    
+    func setup(delegate: RecipeDetailsFormCellDelegate, field: RecipeDetailsFormField, value: String) {
+        self.delegate = delegate
+        self.field = field
+        textField.text = value
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        textField.text = value
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -33,6 +37,5 @@ class TextFieldTableViewCell: UITableViewCell {
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
         delegate.valueChanged(forField: field, newValue: sender.text!)
     }
-    
     
 }

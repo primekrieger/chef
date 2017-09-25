@@ -13,15 +13,19 @@ class TimePickerTableViewCell: UITableViewCell {
     static let nibName = "TimePickerTableViewCell"
     static let cellReuseIdentifier = "timePickerTableViewCell"
     
-    weak var delegate: RecipeDetailsFormCellDelegate!
-    var field: RecipeDetailsFormField!
-    var value: Date!
+    weak private var delegate: RecipeDetailsFormCellDelegate!
+    private var field: RecipeDetailsFormField!
     
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak private var datePicker: UIDatePicker!
+    
+    func setup(delegate: RecipeDetailsFormCellDelegate, field: RecipeDetailsFormField, value: Date) {
+        self.delegate = delegate
+        self.field = field
+        datePicker.date = value
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        datePicker.date = value
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -13,17 +13,24 @@ class DayRepetitionSelectorTableViewCell: UITableViewCell {
     static let nibName = "DayRepetitionSelectorTableViewCell"
     static let cellReuseIdentifier = "dayRepetitionSelectorTableViewCell"
     
-    weak var delegate: RecipeDetailsFormCellDelegate!
-    var field: RecipeDetailsFormField!
-    var value: [Bool]!
+    weak private var delegate: RecipeDetailsFormCellDelegate!
+    private var field: RecipeDetailsFormField!
     
-    @IBOutlet var dayButtons: [UIButton]!
+    @IBOutlet private var dayButtons: [UIButton]!
+    
+    private var shouldRepeatOnDays: [Bool]!
+    
+    func setup(delegate: RecipeDetailsFormCellDelegate, field: RecipeDetailsFormField, value: [Bool]) {
+        self.delegate = delegate
+        self.field = field
+        shouldRepeatOnDays = value
+        for dayButton in dayButtons {
+            dayButton.isSelected = shouldRepeatOnDays[dayButton.tag]
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        for dayButton in dayButtons {
-            dayButton.isSelected = value[dayButton.tag]
-        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,9 +41,8 @@ class DayRepetitionSelectorTableViewCell: UITableViewCell {
     
     @IBAction func weekdayButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        value[sender.tag] = sender.isSelected
-        delegate.valueChanged(forField: field, newValue: value)
+        shouldRepeatOnDays[sender.tag] = sender.isSelected
+        delegate.valueChanged(forField: field, newValue: shouldRepeatOnDays)
     }
-    
     
 }

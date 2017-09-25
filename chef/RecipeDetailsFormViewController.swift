@@ -60,21 +60,15 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
         switch field {
         case .amountTextField:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellReuseIdentifier) as! TextFieldTableViewCell
-            cell.delegate = self
-            cell.field = field
-            cell.value = recipeFormModel.amount
+            cell.setup(delegate: self, field: field, value: recipeFormModel.amount)
             return cell
         case .alarmTimePicker:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimePickerTableViewCell.cellReuseIdentifier) as! TimePickerTableViewCell
-            cell.delegate = self
-            cell.field = field
-            cell.value = recipeFormModel.alarmTime
+            cell.setup(delegate: self, field: field, value: recipeFormModel.alarmTime)
             return cell
         case .alarmRepetitionSelector:
             let cell = tableView.dequeueReusableCell(withIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier) as! DayRepetitionSelectorTableViewCell
-            cell.delegate = self
-            cell.field = field
-            cell.value = recipeFormModel.alarmRepetition
+            cell.setup(delegate: self, field: field, value: recipeFormModel.alarmRepetition)
             return cell
         }
     }
