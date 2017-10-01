@@ -20,43 +20,96 @@ class RecipeDetailsFormViewController: UIViewController {
     
     @IBOutlet weak var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
     
-    var recipe: Recipe?
+    var existingRecipe: Recipe?
     var recipeTemplate: RecipeTemplate?
+    
+    private let recipeToSave = Recipe()
+
     fileprivate var recipeFormModel: RecipeDetailsFormModel!
     
-    // Remove if not really required
-    var isCreatingNewRecipe = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        registerTableViewCells()
+        configureRecipeToSave()
+        recipeFormModel = (existingRecipe != nil) ? RecipeDetailsFormModel(withExistingRecipe: existingRecipe!) : RecipeDetailsFormModel(forFields: recipeToSave.formFields)
+    }
+    
+    private func registerTableViewCells() {
         recipeDetailsFormTableView.register(UINib(nibName: TextFieldTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.cellReuseIdentifier)
         recipeDetailsFormTableView.register(UINib(nibName: TimePickerTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TimePickerTableViewCell.cellReuseIdentifier)
         recipeDetailsFormTableView.register(UINib(nibName: DayRepetitionSelectorTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier)
-        
-        if recipe == nil {
-            isCreatingNewRecipe = true
-            recipe = Recipe()
-            recipe!.templateID = recipeTemplate!.templateID
+    }
+    
+    private func configureRecipeToSave() {
+        if existingRecipe != nil {
+            recipeToSave.uuid = existingRecipe!.uuid
+            recipeToSave.templateID = existingRecipe!.templateID
+        } else {
+            recipeToSave.templateID = recipeTemplate!.templateID
         }
         
-        recipeFormModel = isCreatingNewRecipe ? RecipeDetailsFormModel(forFields: recipe!.formFields) : RecipeDetailsFormModel(withExistingRecipe: recipe!)
+        switch recipeToSave.type {
+        case .lazySaving:
+            recipeToSave.alarm = Alarm()
+            if existingRecipe != nil {
+                recipeToSave.alarm!.uuid = existingRecipe!.alarm!.uuid
+            }
+        }
     }
     
     private func compressHeaderView() {
         recipeDescriptionLabel.removeFromSuperview()
         recipeNameLabelBottomSpaceConstraint.constant = 10
     }
+    
+    private func saveButtonTap() {
+        let (validationSuccessful, errorString) = recipeFormModel.validate()
+        
+        if validationSuccessful {
+            saveRecipe()
+        } else {
+            displayAlert(withMessage: errorString!)
+        }
+    }
+    
+    private func saveRecipe() {
+        for field in recipeFormModel.fields {
+            switch field {
+            case .amountTextField:
+                recipeToSave.amount = Int(recipeFormModel.amountString)!
+            case .alarmTimePicker:
+                recipeToSave.alarm!.hour = Calendar.current.component(.hour, from: recipeFormModel.alarmTime)
+                recipeToSave.alarm!.minute = Calendar.current.component(.minute, from: recipeFormModel.alarmTime)
+            case .alarmRepetitionSelector:
+                for i in 0..<recipeFormModel.shouldRepeatAlarmOnDays.count {
+                    let shouldRepeatOnDay = RealmBool()
+                    if existingRecipe != nil {
+                        shouldRepeatOnDay.uuid = existingRecipe!.alarm!.shouldRepeatOnDays[i].uuid
+                    }
+                    shouldRepeatOnDay.value = recipeFormModel.shouldRepeatAlarmOnDays[i]
+                    recipeToSave.alarm!.shouldRepeatOnDays.append(shouldRepeatOnDay)
+                }
+            }
+        }
+        
+        Manager.shared.saveRecipe(recipeToSave)
+    }
+    
+    private func displayAlert(withMessage message: String) {
+        let alert = UIAlertController(title: Constants.Strings.AlertMessages.title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: Constants.Strings.AlertMessages.okAction, style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
 
 }
 
 extension RecipeDetailsFormViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipe!.formFields.count
+        return recipeFormModel.fields.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let field = recipe!.formFields[indexPath.row]
+        let field = recipeFormModel.fields[indexPath.row]
         switch field {
         case .amountTextField:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellReuseIdentifier) as! TextFieldTableViewCell

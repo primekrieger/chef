@@ -28,8 +28,13 @@ class Recipe: Object {
         }
     }
     
-    dynamic var amount = 0
-    dynamic var active = true
+    dynamic var uuid = NSUUID().uuidString
     dynamic var templateID = 0
+    dynamic var active = true
+    dynamic var amount = 0
     dynamic var alarm: Alarm?
+    
+    override static func primaryKey() -> String? {
+        return "uuid"
+    }
 }

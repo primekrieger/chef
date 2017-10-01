@@ -9,7 +9,7 @@
 import UIKit
 
 class RecipeDetailsFormModel: NSObject {
-    private let fields: [RecipeDetailsFormField]
+    let fields: [RecipeDetailsFormField]
     
     var amountString = ""
     var alarmTime = Date()

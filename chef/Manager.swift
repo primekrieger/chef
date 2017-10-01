@@ -12,8 +12,8 @@ import RealmSwift
 class Manager: NSObject {
     static let shared = Manager()
     
-    func createRecipe(_ recipe: Recipe) {
-        PersistenceManager.shared.save([recipe])
+    func saveRecipe(_ recipe: Recipe) {
+        PersistenceManager.shared.save([recipe], update: true)
     }
     
     func getRecipes(filter: RecipeFilter) -> Results<Recipe> {
@@ -25,6 +25,6 @@ class Manager: NSObject {
     }
     
     func createMockData(_ objects: [Object]) {
-        PersistenceManager.shared.save(objects)
+        PersistenceManager.shared.save(objects, update: false)
     }
 }

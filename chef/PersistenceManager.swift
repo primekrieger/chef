@@ -12,11 +12,11 @@ import RealmSwift
 class PersistenceManager: NSObject {
     static let shared = PersistenceManager()
     
-    func save(_ objects: [Object]) {
+    func save(_ objects: [Object], update: Bool) {
         do {
             let realm = try Realm()
             try realm.write {
-                realm.add(objects)
+                realm.add(objects, update: update)
             }
         } catch let error as NSError {
             print(error)
