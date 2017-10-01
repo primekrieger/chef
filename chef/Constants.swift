@@ -7,10 +7,15 @@
 //
 
 struct Constants {
+    
     struct Strings {
         struct AlertMessages {
             static let title = "Alert"
             static let okAction = "OK"
         }
+    }
+    
+    struct UserDefaultsKeys {
+        static let isFirstLaunch = "isFirstLaunch"
     }
 }
