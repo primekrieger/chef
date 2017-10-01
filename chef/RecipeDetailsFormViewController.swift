@@ -60,7 +60,7 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
         switch field {
         case .amountTextField:
             let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellReuseIdentifier) as! TextFieldTableViewCell
-            cell.setup(delegate: self, field: field, value: recipeFormModel.amount)
+            cell.setup(delegate: self, field: field, value: recipeFormModel.amountString)
             return cell
         case .alarmTimePicker:
             let cell = tableView.dequeueReusableCell(withIdentifier: TimePickerTableViewCell.cellReuseIdentifier) as! TimePickerTableViewCell
@@ -68,7 +68,7 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
             return cell
         case .alarmRepetitionSelector:
             let cell = tableView.dequeueReusableCell(withIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier) as! DayRepetitionSelectorTableViewCell
-            cell.setup(delegate: self, field: field, value: recipeFormModel.alarmRepetition)
+            cell.setup(delegate: self, field: field, value: recipeFormModel.shouldRepeatAlarmOnDays)
             return cell
         }
     }
@@ -78,11 +78,11 @@ extension RecipeDetailsFormViewController: RecipeDetailsFormCellDelegate {
     func valueChanged(forField field: RecipeDetailsFormField, newValue: Any) {
         switch field {
         case .amountTextField:
-            recipeFormModel.amount = newValue as! String
+            recipeFormModel.amountString = newValue as! String
         case .alarmTimePicker:
             recipeFormModel.alarmTime = newValue as! Date
         case .alarmRepetitionSelector:
-            recipeFormModel.alarmRepetition = newValue as! [Bool]
+            recipeFormModel.shouldRepeatAlarmOnDays = newValue as! [Bool]
         }
     }
 }

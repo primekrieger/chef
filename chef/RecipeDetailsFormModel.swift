@@ -11,9 +11,9 @@ import UIKit
 class RecipeDetailsFormModel: NSObject {
     private let fields: [RecipeDetailsFormField]
     
-    var amount = ""
+    var amountString = ""
     var alarmTime = Date()
-    var alarmRepetition = [Bool](repeating: true, count: 7)
+    var shouldRepeatAlarmOnDays = [Bool](repeating: true, count: 7)
     
     init(withExistingRecipe recipe: Recipe) {
         self.fields = recipe.formFields
@@ -21,15 +21,15 @@ class RecipeDetailsFormModel: NSObject {
         for field in fields {
             switch field {
             case .amountTextField:
-                amount = String(recipe.amount)
+                amountString = String(recipe.amount)
             case .alarmTimePicker:
                 var dateComponents = DateComponents()
                 dateComponents.hour = recipe.alarm!.hour
                 dateComponents.minute = recipe.alarm!.minute
                 alarmTime = Calendar.current.date(from: dateComponents)!
             case .alarmRepetitionSelector:
-                for i in 0..<alarmRepetition.count {
-                    alarmRepetition[i] = recipe.alarm!.shouldRepeatOnDays[i].value
+                for i in 0..<shouldRepeatAlarmOnDays.count {
+                    shouldRepeatAlarmOnDays[i] = recipe.alarm!.shouldRepeatOnDays[i].value
                 }
             }
         }
@@ -37,5 +37,27 @@ class RecipeDetailsFormModel: NSObject {
     
     init(forFields fields: [RecipeDetailsFormField]) {
         self.fields = fields
+    }
+    
+    func validate() -> (success: Bool, errorString: String?) {
+        for field in fields {
+            validateField: switch field {
+            case .amountTextField:
+                let amount = Int(amountString.trimmingCharacters(in: .whitespaces))
+                if amount == nil || amount! < 250 || amount! > 1000 {
+                    return (false, "Please enter an amount between 250 and 1000")
+                }
+            case .alarmTimePicker:
+                break
+            case .alarmRepetitionSelector:
+                for shouldRepeatOnDay in shouldRepeatAlarmOnDays {
+                    if shouldRepeatOnDay {
+                        break validateField
+                    }
+                }
+                return (false, "Please select at least one day for alarm repetition")
+            }
+        }
+        return (true, nil)
     }
 }
