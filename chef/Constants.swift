@@ -18,4 +18,8 @@ struct Constants {
     struct UserDefaultsKeys {
         static let isFirstLaunch = "isFirstLaunch"
     }
+    
+    struct Storyboards {
+        static let main = "Main"
+    }
 }

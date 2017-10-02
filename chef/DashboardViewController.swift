@@ -38,7 +38,7 @@ class DashboardViewController: UIViewController {
 
 }
 
-extension DashboardViewController: UITableViewDataSource {
+extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipesToDisplay.count
     }
@@ -46,5 +46,11 @@ extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeDashboardTableViewCell.cellReuseIdentifier) as! RecipeDashboardTableViewCell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipeDetailsFormViewController = UIStoryboard(name: Constants.Storyboards.main, bundle: nil).instantiateViewController(withIdentifier: RecipeDetailsFormViewController.identifier) as! RecipeDetailsFormViewController
+        recipeDetailsFormViewController.existingRecipe = recipesToDisplay[indexPath.row]
+        navigationController?.pushViewController(recipeDetailsFormViewController, animated: true)
     }
 }

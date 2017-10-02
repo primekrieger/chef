@@ -20,7 +20,7 @@ class PickRecipeViewController: UIViewController {
     }
 }
 
-extension PickRecipeViewController: UITableViewDataSource {
+extension PickRecipeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipeTemplates.count
     }
@@ -28,5 +28,11 @@ extension PickRecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier) as! RecipeTemplateTableViewCell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let recipeDetailsFormViewController = UIStoryboard(name: Constants.Storyboards.main, bundle: nil).instantiateViewController(withIdentifier: RecipeDetailsFormViewController.identifier) as! RecipeDetailsFormViewController
+        recipeDetailsFormViewController.recipeTemplate = recipeTemplates[indexPath.row]
+        navigationController?.pushViewController(recipeDetailsFormViewController, animated: true)
     }
 }

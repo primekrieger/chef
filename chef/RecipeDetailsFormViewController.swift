@@ -13,12 +13,13 @@ protocol RecipeDetailsFormCellDelegate: class {
 }
 
 class RecipeDetailsFormViewController: UIViewController {
+    static let identifier = "RecipeDetailsFormViewController"
     
-    @IBOutlet weak var recipeNameLabel: UILabel!
-    @IBOutlet weak var recipeDescriptionLabel: UILabel!
-    @IBOutlet weak var recipeDetailsFormTableView: UITableView!
+    @IBOutlet weak private var recipeNameLabel: UILabel!
+    @IBOutlet weak private var recipeDescriptionLabel: UILabel!
+    @IBOutlet weak private var recipeDetailsFormTableView: UITableView!
     
-    @IBOutlet weak var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
+    @IBOutlet weak private var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
     
     var existingRecipe: Recipe?
     var recipeTemplate: RecipeTemplate?
@@ -62,11 +63,11 @@ class RecipeDetailsFormViewController: UIViewController {
         recipeNameLabelBottomSpaceConstraint.constant = 10
     }
     
-    private func saveButtonTap() {
+    @IBAction func saveButtonTap(_ sender: UIButton) {
         let (validationSuccessful, errorString) = recipeFormModel.validate()
-        
         if validationSuccessful {
             saveRecipe()
+            navigationController?.popToRootViewController(animated: true)
         } else {
             displayAlert(withMessage: errorString!)
         }

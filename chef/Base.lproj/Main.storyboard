@@ -206,21 +206,31 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eXn-kw-49t">
-                                <rect key="frame" x="0.0" y="150.5" width="375" height="516.5"/>
+                                <rect key="frame" x="0.0" y="151" width="375" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JUz-hg-C5R" id="b8w-RJ-0iz"/>
                                     <outlet property="delegate" destination="JUz-hg-C5R" id="zMM-GK-ZHJ"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JJ-cv-ZoH">
+                                <rect key="frame" x="167.5" y="618" width="40" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonTap:" destination="JUz-hg-C5R" eventType="touchUpInside" id="DHC-5k-nva"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ENh-86-vzC" firstAttribute="top" secondItem="eXn-kw-49t" secondAttribute="bottom" id="IZJ-0W-DdZ"/>
+                            <constraint firstItem="3JJ-cv-ZoH" firstAttribute="top" secondItem="eXn-kw-49t" secondAttribute="bottom" constant="15" id="Bv0-ME-41E"/>
+                            <constraint firstItem="3JJ-cv-ZoH" firstAttribute="centerX" secondItem="q1q-P1-n8s" secondAttribute="centerX" id="DmE-C2-l27"/>
                             <constraint firstAttribute="trailing" secondItem="eXn-kw-49t" secondAttribute="trailing" id="Kfi-3v-ax3"/>
                             <constraint firstItem="eXn-kw-49t" firstAttribute="leading" secondItem="q1q-P1-n8s" secondAttribute="leading" id="KxT-tO-FzZ"/>
                             <constraint firstItem="4DS-dn-uy3" firstAttribute="top" secondItem="IgG-h7-G6s" secondAttribute="bottom" id="LSK-tl-QXh"/>
                             <constraint firstItem="4DS-dn-uy3" firstAttribute="leading" secondItem="q1q-P1-n8s" secondAttribute="leading" id="UbQ-vR-DMi"/>
+                            <constraint firstItem="ENh-86-vzC" firstAttribute="top" secondItem="3JJ-cv-ZoH" secondAttribute="bottom" constant="15" id="dBI-XE-tGI"/>
                             <constraint firstItem="eXn-kw-49t" firstAttribute="top" secondItem="4DS-dn-uy3" secondAttribute="bottom" constant="20" id="eNy-xt-FRI"/>
                             <constraint firstAttribute="trailing" secondItem="4DS-dn-uy3" secondAttribute="trailing" id="uqK-Hf-MnS"/>
                         </constraints>
