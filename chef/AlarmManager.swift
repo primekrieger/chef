@@ -10,7 +10,8 @@ import UIKit
 import UserNotifications
 
 class AlarmManager: NSObject {
-    static let shared = AlarmManager()
+    
+    let notificationCenter = UNUserNotificationCenter.current()
     
     func scheduleAlarm(_ alarm: Alarm) {
         removeAlarm(alarmUUID: alarm.uuid)
@@ -22,7 +23,7 @@ class AlarmManager: NSObject {
         for i in 0..<7 {
             notificationIdentifiers.append(alarmUUID + String(i))
         }
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: notificationIdentifiers)
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: notificationIdentifiers)
     }
     
     private func setAlarm(_ alarm: Alarm) {
@@ -38,15 +39,13 @@ class AlarmManager: NSObject {
         dateInfo.hour = alarm.hour
         dateInfo.minute = alarm.minute
         
-        let center = UNUserNotificationCenter.current()
-        
         for i in 0..<alarm.shouldRepeatOnDays.count {
             if alarm.shouldRepeatOnDays[i].value {
                 dateInfo.weekday = i + 1
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: true)
                 let request = UNNotificationRequest(identifier: alarm.uuid + String(i), content: alarmNotificationContent, trigger: trigger)
                 
-                center.add(request) { (error: Error?) in
+                notificationCenter.add(request) { (error: Error?) in
                     if let someError = error {
                         print(someError.localizedDescription)
                     }

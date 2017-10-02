@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppSettings.shared.isFirstLaunch = false
             setupMockData()
         }
-        
+        askNotificationsPermission()
         return true
     }
 
@@ -51,6 +52,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                shortDescription: "Pay up each time you snooze on a wake up alarm. Guilty Pleasures.")
         
         Manager.shared.createMockData([lazySavingRecipe])
+    }
+    
+    private func askNotificationsPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if !granted {
+                self.displayPermissionAlert()
+            }
+        }
+    }
+    
+    private func displayPermissionAlert() {
+        let alert = UIAlertController(title: Constants.Strings.AlertMessages.notificationsPermissionTitle, message: Constants.Strings.AlertMessages.notificationsPermissionMessage, preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: Constants.Strings.AlertMessages.settingsAction, style: .default, handler: { _ in
+            guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL)
+            }
+        })
+        alert.addAction(settingsAction)
+        
+        let cancelAction = UIAlertAction(title: Constants.Strings.AlertMessages.cancelAction, style: .default, handler: nil)
+        alert.addAction(cancelAction)
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
 }

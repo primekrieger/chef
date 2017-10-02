@@ -12,6 +12,10 @@ struct Constants {
         struct AlertMessages {
             static let title = "Alert"
             static let okAction = "OK"
+            static let notificationsPermissionTitle = "Please allow notifications"
+            static let notificationsPermissionMessage = "In Settings -> chef, turn on notifications"
+            static let settingsAction = "Open Settings"
+            static let cancelAction = "Cancel"
         }
     }
     

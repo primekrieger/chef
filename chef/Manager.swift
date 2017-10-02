@@ -14,6 +14,11 @@ class Manager: NSObject {
     
     func saveRecipe(_ recipe: Recipe) {
         PersistenceManager.shared.save([recipe], update: true)
+        
+        switch recipe.type {
+        case .lazySaving:
+            AlarmManager().scheduleAlarm(recipe.alarm!)
+        }
     }
     
     func getRecipes(filter: RecipeFilter) -> Results<Recipe> {
