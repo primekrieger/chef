@@ -22,4 +22,10 @@ struct Constants {
     struct Storyboards {
         static let main = "Main"
     }
+    
+    struct Alarm {
+        static let category = "CHEF_ALARM"
+        static let title = "Wake up!"
+        static let body = "Rise and shine! It's morning time!"
+    }
 }
