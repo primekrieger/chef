@@ -28,8 +28,12 @@ struct Constants {
     }
     
     struct Alarm {
-        static let category = "CHEF_ALARM"
         static let title = "Wake up!"
         static let body = "Rise and shine! It's morning time!"
+        static let categoryIdentifier = "CHEF_ALARM"
+        static let snoozeActionIdentifier = "SNOOZE_ACTION"
+        static let stopActionIdentifier = "STOP_ACTION"
+        static let snoozeActionTitle = "Snooze"
+        static let stopActionTitle = "Stop"
     }
 }

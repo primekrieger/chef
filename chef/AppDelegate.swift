@@ -21,7 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AppSettings.shared.isFirstLaunch = false
             setupMockData()
         }
+        UNUserNotificationCenter.current().delegate = self
         askNotificationsPermission()
+        setNotificationCategory()
+        
         return true
     }
 
@@ -80,5 +83,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
+    private func setNotificationCategory() {
+        let snoozeAction = UNNotificationAction(identifier: Constants.Alarm.snoozeActionIdentifier,
+                                                title: Constants.Alarm.snoozeActionTitle,
+                                                options: UNNotificationActionOptions(rawValue: 0))
+        let stopAction = UNNotificationAction(identifier: Constants.Alarm.stopActionIdentifier,
+                                              title: Constants.Alarm.stopActionTitle,
+                                              options: .destructive)
+        let alarmCategory = UNNotificationCategory(identifier: Constants.Alarm.categoryIdentifier,
+                                                     actions: [snoozeAction, stopAction],
+                                                     intentIdentifiers: [],
+                                                     options: .customDismissAction)
+        UNUserNotificationCenter.current().setNotificationCategories([alarmCategory])
+    }
+    
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        switch response.actionIdentifier {
+        case UNNotificationDefaultActionIdentifier:
+            break
+        case Constants.Alarm.snoozeActionIdentifier, UNNotificationDismissActionIdentifier:
+            break
+        default:
+            break
+        }
+        completionHandler()
+    }
 }
 

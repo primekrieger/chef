@@ -31,7 +31,7 @@ class AlarmManager: NSObject {
         alarmNotificationContent.title = Constants.Alarm.title
         alarmNotificationContent.body = Constants.Alarm.body
         
-        alarmNotificationContent.categoryIdentifier = Constants.Alarm.category
+        alarmNotificationContent.categoryIdentifier = Constants.Alarm.categoryIdentifier
         
         alarmNotificationContent.sound = UNNotificationSound.default()
         
