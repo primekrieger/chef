@@ -13,9 +13,34 @@ class AlarmManager: NSObject {
     
     let notificationCenter = UNUserNotificationCenter.current()
     
-    func scheduleAlarm(_ alarm: Alarm) {
-        removeAlarm(alarmUUID: alarm.uuid)
-        setAlarm(alarm)
+    func scheduleAlarm(forRecipe recipe: Recipe) {
+        removeAlarm(alarmUUID: recipe.alarm!.uuid)
+        setAlarm(forRecipe: recipe)
+    }
+    
+    func snooze(alarmRequestIdentifier: String, recipeIdentifier: String) {
+        let alarmNotificationContent = createAlarmNotificationContent()
+        alarmNotificationContent.userInfo = [Constants.Keys.recipeIdentifier: recipeIdentifier]
+        
+        let snoozeAlarmDate = Date(timeIntervalSinceNow: 5 * 60)
+        
+        var dateInfo = DateComponents()
+        dateInfo.hour = Calendar.current.component(.hour, from: snoozeAlarmDate)
+        dateInfo.minute = Calendar.current.component(.minute, from: snoozeAlarmDate)
+        
+        var alarmIdentifier = alarmRequestIdentifier
+        if alarmRequestIdentifier.substring(from: alarmRequestIdentifier.index(alarmRequestIdentifier.endIndex, offsetBy: -Constants.Alarm.snoozeSuffix.count)) != Constants.Alarm.snoozeSuffix {
+            alarmIdentifier.append(Constants.Alarm.snoozeSuffix)
+        }
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
+        let request = UNNotificationRequest(identifier: alarmIdentifier, content: alarmNotificationContent, trigger: trigger)
+        
+        notificationCenter.add(request) { (error: Error?) in
+            if let someError = error {
+                print(someError.localizedDescription)
+            }
+        }
     }
     
     private func removeAlarm(alarmUUID: String) {
@@ -26,14 +51,11 @@ class AlarmManager: NSObject {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: notificationIdentifiers)
     }
     
-    private func setAlarm(_ alarm: Alarm) {
-        let alarmNotificationContent = UNMutableNotificationContent()
-        alarmNotificationContent.title = Constants.Alarm.title
-        alarmNotificationContent.body = Constants.Alarm.body
+    private func setAlarm(forRecipe recipe: Recipe) {
+        let alarm = recipe.alarm!
         
-        alarmNotificationContent.categoryIdentifier = Constants.Alarm.categoryIdentifier
-        
-        alarmNotificationContent.sound = UNNotificationSound.default()
+        let alarmNotificationContent = createAlarmNotificationContent()
+        alarmNotificationContent.userInfo = [Constants.Keys.recipeIdentifier: recipe.uuid]
         
         var dateInfo = DateComponents()
         dateInfo.hour = alarm.hour
@@ -53,4 +75,14 @@ class AlarmManager: NSObject {
             }
         }
     }
+    
+    private func createAlarmNotificationContent() -> UNMutableNotificationContent {
+        let alarmNotificationContent = UNMutableNotificationContent()
+        alarmNotificationContent.title = Constants.Alarm.title
+        alarmNotificationContent.body = Constants.Alarm.body
+        alarmNotificationContent.categoryIdentifier = Constants.Alarm.categoryIdentifier
+        alarmNotificationContent.sound = UNNotificationSound.default()
+        return alarmNotificationContent
+    }
+    
 }

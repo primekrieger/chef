@@ -105,11 +105,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
         switch response.actionIdentifier {
-        case UNNotificationDefaultActionIdentifier:
-            break
         case Constants.Alarm.snoozeActionIdentifier, UNNotificationDismissActionIdentifier:
-            break
+            let notificationRequest = response.notification.request
+            let recipeIdentifier = notificationRequest.content.userInfo[Constants.Keys.recipeIdentifier] as! String
+            Manager.shared.snoozeAlarm(alarmRequestIdentifier: notificationRequest.identifier, recipeIdentifier: recipeIdentifier)
         default:
             break
         }

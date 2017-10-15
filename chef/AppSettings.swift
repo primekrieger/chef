@@ -14,16 +14,16 @@ class AppSettings: NSObject {
     private override init() {
         super.init()
         UserDefaults.standard.register(defaults: [
-            Constants.UserDefaultsKeys.isFirstLaunch: true
+            Constants.Keys.UserDefaults.isFirstLaunch: true
             ])
     }
     
     var isFirstLaunch: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: Constants.UserDefaultsKeys.isFirstLaunch)
+            return UserDefaults.standard.bool(forKey: Constants.Keys.UserDefaults.isFirstLaunch)
         }
         set(value) {
-            UserDefaults.standard.set(value, forKey: Constants.UserDefaultsKeys.isFirstLaunch)
+            UserDefaults.standard.set(value, forKey: Constants.Keys.UserDefaults.isFirstLaunch)
         }
     }
 }

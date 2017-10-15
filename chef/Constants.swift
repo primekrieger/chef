@@ -19,8 +19,11 @@ struct Constants {
         }
     }
     
-    struct UserDefaultsKeys {
-        static let isFirstLaunch = "isFirstLaunch"
+    struct Keys {
+        struct UserDefaults {
+            static let isFirstLaunch = "isFirstLaunch"
+        }
+        static let recipeIdentifier = "recipeIdentifier"
     }
     
     struct Storyboards {
@@ -35,5 +38,6 @@ struct Constants {
         static let stopActionIdentifier = "STOP_ACTION"
         static let snoozeActionTitle = "Snooze"
         static let stopActionTitle = "Stop"
+        static let snoozeSuffix = "Snooze"
     }
 }

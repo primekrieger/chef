@@ -17,7 +17,7 @@ class Manager: NSObject {
         
         switch recipe.type {
         case .lazySaving:
-            AlarmManager().scheduleAlarm(recipe.alarm!)
+            AlarmManager().scheduleAlarm(forRecipe: recipe)
         }
     }
     
@@ -31,5 +31,10 @@ class Manager: NSObject {
     
     func createMockData(_ objects: [Object]) {
         PersistenceManager.shared.save(objects, update: false)
+    }
+    
+    func snoozeAlarm(alarmRequestIdentifier: String, recipeIdentifier: String) {
+        // persistence manager save money
+        AlarmManager().snooze(alarmRequestIdentifier: alarmRequestIdentifier, recipeIdentifier: recipeIdentifier)
     }
 }
