@@ -36,7 +36,7 @@ class RecipeDetailsFormViewController: UIViewController {
     }
     
     private func registerTableViewCells() {
-        recipeDetailsFormTableView.register(UINib(nibName: TextFieldTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.cellReuseIdentifier)
+        recipeDetailsFormTableView.register(UINib(nibName: LabelTextFieldTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: LabelTextFieldTableViewCell.cellReuseIdentifier)
         recipeDetailsFormTableView.register(UINib(nibName: TimePickerTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: TimePickerTableViewCell.cellReuseIdentifier)
         recipeDetailsFormTableView.register(UINib(nibName: DayRepetitionSelectorTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: DayRepetitionSelectorTableViewCell.cellReuseIdentifier)
     }
@@ -113,7 +113,7 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
         let field = recipeFormModel.fields[indexPath.row]
         switch field {
         case .amountTextField:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TextFieldTableViewCell.cellReuseIdentifier) as! TextFieldTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LabelTextFieldTableViewCell.cellReuseIdentifier) as! LabelTextFieldTableViewCell
             cell.setup(delegate: self, field: field, value: recipeFormModel.amountString)
             return cell
         case .alarmTimePicker:

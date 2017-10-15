@@ -26,14 +26,14 @@
 		0E8E5A2B1F769D090062F4D6 /* RecipeTemplateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */; };
 		0E8E5A2C1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */; };
 		0E9B5CD41F7840E7003C6C7C /* RecipeDetailsFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5CD31F7840E7003C6C7C /* RecipeDetailsFormModel.swift */; };
-		0E9B5CD71F7853EF003C6C7C /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5CD51F7853EF003C6C7C /* TextFieldTableViewCell.swift */; };
-		0E9B5CD81F7853EF003C6C7C /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B5CD61F7853EF003C6C7C /* TextFieldTableViewCell.xib */; };
 		0E9B5CF91F7941E5003C6C7C /* DayRepetitionSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5CF71F7941E4003C6C7C /* DayRepetitionSelectorTableViewCell.swift */; };
 		0E9B5CFA1F7941E5003C6C7C /* DayRepetitionSelectorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B5CF81F7941E4003C6C7C /* DayRepetitionSelectorTableViewCell.xib */; };
 		0E9B5CFD1F79839C003C6C7C /* TimePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5CFB1F79839C003C6C7C /* TimePickerTableViewCell.swift */; };
 		0E9B5CFE1F79839C003C6C7C /* TimePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B5CFC1F79839C003C6C7C /* TimePickerTableViewCell.xib */; };
 		0E9B5D021F818F3E003C6C7C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5D011F818F3E003C6C7C /* AppSettings.swift */; };
 		0E9B5D041F824572003C6C7C /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5D031F824572003C6C7C /* AlarmManager.swift */; };
+		0EB968331F93B7510033362A /* LabelTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB968311F93B7510033362A /* LabelTextFieldTableViewCell.swift */; };
+		0EB968341F93B7510033362A /* LabelTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB968321F93B7510033362A /* LabelTextFieldTableViewCell.xib */; };
 		BBE71BA48C3E6B342D58F042 /* Pods_chef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9479903F73E01DAAB8171CFC /* Pods_chef.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,14 +59,14 @@
 		0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeTemplateTableViewCell.swift; sourceTree = "<group>"; };
 		0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeTemplateTableViewCell.xib; sourceTree = "<group>"; };
 		0E9B5CD31F7840E7003C6C7C /* RecipeDetailsFormModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailsFormModel.swift; sourceTree = "<group>"; };
-		0E9B5CD51F7853EF003C6C7C /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
-		0E9B5CD61F7853EF003C6C7C /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		0E9B5CF71F7941E4003C6C7C /* DayRepetitionSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayRepetitionSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		0E9B5CF81F7941E4003C6C7C /* DayRepetitionSelectorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DayRepetitionSelectorTableViewCell.xib; sourceTree = "<group>"; };
 		0E9B5CFB1F79839C003C6C7C /* TimePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerTableViewCell.swift; sourceTree = "<group>"; };
 		0E9B5CFC1F79839C003C6C7C /* TimePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerTableViewCell.xib; sourceTree = "<group>"; };
 		0E9B5D011F818F3E003C6C7C /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		0E9B5D031F824572003C6C7C /* AlarmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
+		0EB968311F93B7510033362A /* LabelTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		0EB968321F93B7510033362A /* LabelTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		9479903F73E01DAAB8171CFC /* Pods_chef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0690EC822B887E6B03552A1 /* Pods-chef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.release.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.release.xcconfig"; sourceTree = "<group>"; };
 		EDB767223E1C25C5A386A83F /* Pods-chef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chef/Pods-chef.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,8 +167,8 @@
 		0E8E5A2F1F76F4310062F4D6 /* FormCells */ = {
 			isa = PBXGroup;
 			children = (
-				0E9B5CD51F7853EF003C6C7C /* TextFieldTableViewCell.swift */,
-				0E9B5CD61F7853EF003C6C7C /* TextFieldTableViewCell.xib */,
+				0EB968311F93B7510033362A /* LabelTextFieldTableViewCell.swift */,
+				0EB968321F93B7510033362A /* LabelTextFieldTableViewCell.xib */,
 				0E9B5CFB1F79839C003C6C7C /* TimePickerTableViewCell.swift */,
 				0E9B5CFC1F79839C003C6C7C /* TimePickerTableViewCell.xib */,
 				0E9B5CF71F7941E4003C6C7C /* DayRepetitionSelectorTableViewCell.swift */,
@@ -258,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E8E59C91F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib in Resources */,
-				0E9B5CD81F7853EF003C6C7C /* TextFieldTableViewCell.xib in Resources */,
+				0EB968341F93B7510033362A /* LabelTextFieldTableViewCell.xib in Resources */,
 				0E8E59931F7069EF0062F4D6 /* LaunchScreen.storyboard in Resources */,
 				0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */,
 				0E9B5CFE1F79839C003C6C7C /* TimePickerTableViewCell.xib in Resources */,
@@ -339,11 +339,11 @@
 				0E9B5CFD1F79839C003C6C7C /* TimePickerTableViewCell.swift in Sources */,
 				0E9B5CD41F7840E7003C6C7C /* RecipeDetailsFormModel.swift in Sources */,
 				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
+				0EB968331F93B7510033362A /* LabelTextFieldTableViewCell.swift in Sources */,
 				0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */,
 				0E9B5D041F824572003C6C7C /* AlarmManager.swift in Sources */,
 				0E9B5CF91F7941E5003C6C7C /* DayRepetitionSelectorTableViewCell.swift in Sources */,
 				0E8E5A0C1F7552AB0062F4D6 /* PickRecipeViewController.swift in Sources */,
-				0E9B5CD71F7853EF003C6C7C /* TextFieldTableViewCell.swift in Sources */,
 				0E8E5A261F769B280062F4D6 /* RecipeTemplate.swift in Sources */,
 				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
 				0E9B5D021F818F3E003C6C7C /* AppSettings.swift in Sources */,
