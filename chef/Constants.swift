@@ -6,6 +6,8 @@
 //  Copyright © 2017 Diwakar Kamboj. All rights reserved.
 //
 
+import UIKit
+
 struct Constants {
     
     struct Strings {
@@ -16,6 +18,11 @@ struct Constants {
             static let notificationsPermissionMessage = "In Settings -> chef, turn on notifications"
             static let settingsAction = "Open Settings"
             static let cancelAction = "Cancel"
+        }
+        
+        struct FormCells {
+            static let amountTextFieldLabel = "Each action is worth"
+            static let amountTextFieldPlaceholder = "Enter an amount"
         }
     }
     
@@ -28,6 +35,11 @@ struct Constants {
     
     struct Storyboards {
         static let main = "Main"
+    }
+    
+    struct Colors {
+        static let inactiveGray = UIColor(hex: "DDDDDD")
+        static let borderGray = UIColor(hex: "CCCCCC")
     }
     
     struct Alarm {

@@ -26,6 +26,7 @@ class DayRepetitionSelectorTableViewCell: UITableViewCell {
         shouldRepeatOnDays = value
         for dayButton in dayButtons {
             dayButton.isSelected = shouldRepeatOnDays[dayButton.tag]
+            setSelectedStateAppearance(for: dayButton)
         }
     }
     
@@ -33,14 +34,20 @@ class DayRepetitionSelectorTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    private func setSelectedStateAppearance(for button: UIButton) {
+        if button.isSelected {
+            button.backgroundColor = UIColor.black
+            button.layer.borderWidth = 0
+        } else {
+            button.backgroundColor = Constants.Colors.inactiveGray
+            button.layer.borderWidth = 1
+            button.layer.borderColor = Constants.Colors.borderGray.cgColor
+        }
     }
     
     @IBAction func weekdayButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        setSelectedStateAppearance(for: sender)
         shouldRepeatOnDays[sender.tag] = sender.isSelected
         delegate.valueChanged(forField: field, newValue: shouldRepeatOnDays)
     }

@@ -23,6 +23,7 @@ class LabelTextFieldTableViewCell: UITableViewCell {
         self.delegate = delegate
         self.field = field
         textField.text = value
+        configureCellForField()
     }
     
     override func awakeFromNib() {
@@ -30,10 +31,19 @@ class LabelTextFieldTableViewCell: UITableViewCell {
         textField.delegate = self
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+    private func configureCellForField() {
+        switch field! {
+        case .amountTextField:
+            titleLabel.text = Constants.Strings.FormCells.amountTextFieldLabel
+            textField.placeholder = Constants.Strings.FormCells.amountTextFieldPlaceholder
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 12, height: 40))
+            label.text = "₹"
+            label.font = textField.font
+            textField.leftView = label
+            textField.leftViewMode = .always
+        default:
+            break
+        }
     }
     
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
