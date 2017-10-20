@@ -14,13 +14,6 @@ class Recipe: Object {
         return RecipeType(rawValue: templateID)!
     }
     
-    var displayName: String {
-        switch type {
-        case .lazySaving:
-            return "Lazy Saving"
-        }
-    }
-    
     var formFields: [RecipeDetailsFormField] {
         switch type {
         case .lazySaving:

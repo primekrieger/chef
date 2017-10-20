@@ -10,6 +10,10 @@ import UIKit
 import RealmSwift
 
 class RecipeTemplate: Object {
+    var type: RecipeType {
+        return RecipeType(rawValue: templateID)!
+    }
+    
     dynamic var templateID = 0
     dynamic var shortDescription = ""
     

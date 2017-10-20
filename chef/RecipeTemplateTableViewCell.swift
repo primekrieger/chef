@@ -12,16 +12,13 @@ class RecipeTemplateTableViewCell: UITableViewCell {
     
     static let nibName = "RecipeTemplateTableViewCell"
     static let cellReuseIdentifier = "recipeTemplateTableViewCell"
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var descriptionLabel: UILabel!
+    
+    func setup(displayName: String, shortDescription: String) {
+        nameLabel.text = displayName
+        descriptionLabel.text = shortDescription
     }
     
 }

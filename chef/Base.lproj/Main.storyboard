@@ -121,7 +121,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="Mka-Sq-koe" kind="show" id="Yvi-5D-wg6"/>
+                                    <segue destination="RMs-er-biS" kind="presentation" id="Yvi-5D-wg6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -155,7 +155,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--Pick Recipe View Controller-->
+        <!--Pick a recipe-->
         <scene sceneID="Wc0-V2-Daj">
             <objects>
                 <viewController id="Mka-Sq-koe" customClass="PickRecipeViewController" customModule="chef" customModuleProvider="target" sceneMemberID="viewController">
@@ -167,9 +167,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-po-mMJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-po-mMJ">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mka-Sq-koe" id="LF4-Vf-e0q"/>
                                     <outlet property="delegate" destination="Mka-Sq-koe" id="EvQ-ei-wch"/>
@@ -184,13 +185,14 @@
                             <constraint firstAttribute="trailing" secondItem="yxl-po-mMJ" secondAttribute="trailing" id="fb1-ns-Kxi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Pick a recipe" id="pUo-Sz-UMN"/>
                     <connections>
                         <outlet property="recipeTemplatesTableView" destination="yxl-po-mMJ" id="5l4-0d-NjI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FAF-6n-b0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="138.98050974512745"/>
+            <point key="canvasLocation" x="2626" y="139"/>
         </scene>
         <!--Recipe Details Form View Controller-->
         <scene sceneID="G3k-D7-HfH">
@@ -280,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xv9-qa-JFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2525.5999999999999" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1076" y="837"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4Li-vQ-gT1">
@@ -299,6 +301,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DBc-Vs-dPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="313" y="139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cdS-6j-eTG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RMs-er-biS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8se-DO-oUI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mka-Sq-koe" kind="relationship" relationship="rootViewController" id="EA0-bK-U0s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XHv-ki-Gxi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1838" y="139"/>
         </scene>
     </scenes>
 </document>

@@ -16,4 +16,11 @@ enum RecipeDetailsFormField {
 
 enum RecipeType: Int {
     case lazySaving = 1001
+    
+    var displayName: String {
+        switch self {
+        case .lazySaving:
+            return "Lazy Saving"
+        }
+    }
 }

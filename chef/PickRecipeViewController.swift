@@ -17,6 +17,7 @@ class PickRecipeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeTemplatesTableView.register(UINib(nibName: RecipeTemplateTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier)
+        recipeTemplatesTableView.tableFooterView = UIView()
     }
 }
 
@@ -27,6 +28,8 @@ extension PickRecipeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier) as! RecipeTemplateTableViewCell
+        let recipeTemplate = recipeTemplates[indexPath.row]
+        cell.setup(displayName: recipeTemplate.type.displayName, shortDescription: recipeTemplate.shortDescription)
         return cell
     }
     
