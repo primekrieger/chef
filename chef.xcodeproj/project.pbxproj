@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0E4E0C051F9A2CB400BBC352 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E0C041F9A2CB400BBC352 /* UIColor+Extension.swift */; };
+		0E4E0C081F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E0C061F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.swift */; };
+		0E4E0C091F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E0C071F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib */; };
+		0E4E0C0C1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E0C0A1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift */; };
+		0E4E0C0D1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */; };
 		0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */; };
 		0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59891F7069EF0062F4D6 /* Main.storyboard */; };
 		0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */; };
@@ -17,8 +21,6 @@
 		0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C01F72C1CD0062F4D6 /* Manager.swift */; };
 		0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C21F72C3160062F4D6 /* PersistenceManager.swift */; };
 		0E8E59C51F73D8C60062F4D6 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */; };
-		0E8E59C81F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */; };
-		0E8E59C91F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */; };
 		0E8E5A0A1F7410330062F4D6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A091F7410330062F4D6 /* Enums.swift */; };
 		0E8E5A0C1F7552AB0062F4D6 /* PickRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */; };
 		0E8E5A141F7560020062F4D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E5A131F7560020062F4D6 /* Constants.swift */; };
@@ -40,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		0E4E0C041F9A2CB400BBC352 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		0E4E0C061F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveRecipeDashboardTableViewCell.swift; sourceTree = "<group>"; };
+		0E4E0C071F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveRecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
+		0E4E0C0A1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveRecipeDashboardTableViewCell.swift; sourceTree = "<group>"; };
+		0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InactiveRecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		0E8E59821F7069EF0062F4D6 /* chef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E8E598A1F7069EF0062F4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,8 +57,6 @@
 		0E8E59C01F72C1CD0062F4D6 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		0E8E59C21F72C3160062F4D6 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDashboardTableViewCell.swift; sourceTree = "<group>"; };
-		0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		0E8E5A091F7410330062F4D6 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickRecipeViewController.swift; sourceTree = "<group>"; };
 		0E8E5A131F7560020062F4D6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -166,8 +170,10 @@
 				0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */,
 				0E8E59891F7069EF0062F4D6 /* Main.storyboard */,
 				0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */,
-				0E8E59C61F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift */,
-				0E8E59C71F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib */,
+				0E4E0C061F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.swift */,
+				0E4E0C071F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib */,
+				0E4E0C0A1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift */,
+				0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */,
 				0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */,
 				0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */,
 				0E8E5A2F1F76F4310062F4D6 /* FormCells */,
@@ -268,8 +274,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E8E59C91F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.xib in Resources */,
+				0E4E0C091F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib in Resources */,
 				0EB968341F93B7510033362A /* LabelTextFieldTableViewCell.xib in Resources */,
+				0E4E0C0D1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib in Resources */,
 				0E8E59931F7069EF0062F4D6 /* LaunchScreen.storyboard in Resources */,
 				0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */,
 				0E9B5CFE1F79839C003C6C7C /* TimePickerTableViewCell.xib in Resources */,
@@ -343,8 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E8E5A2B1F769D090062F4D6 /* RecipeTemplateTableViewCell.swift in Sources */,
-				0E8E59C81F73DC2D0062F4D6 /* RecipeDashboardTableViewCell.swift in Sources */,
 				0E8E5A141F7560020062F4D6 /* Constants.swift in Sources */,
+				0E4E0C0C1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift in Sources */,
 				0E8E59C31F72C3160062F4D6 /* PersistenceManager.swift in Sources */,
 				0E8E59C51F73D8C60062F4D6 /* DashboardViewController.swift in Sources */,
 				0E9B5CFD1F79839C003C6C7C /* TimePickerTableViewCell.swift in Sources */,
@@ -352,6 +359,7 @@
 				0E8E59C11F72C1CD0062F4D6 /* Manager.swift in Sources */,
 				0EB968331F93B7510033362A /* LabelTextFieldTableViewCell.swift in Sources */,
 				0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */,
+				0E4E0C081F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.swift in Sources */,
 				0E9B5D041F824572003C6C7C /* AlarmManager.swift in Sources */,
 				0E9B5CF91F7941E5003C6C7C /* DayRepetitionSelectorTableViewCell.swift in Sources */,
 				0E8E5A0C1F7552AB0062F4D6 /* PickRecipeViewController.swift in Sources */,

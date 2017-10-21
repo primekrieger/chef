@@ -75,7 +75,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No active recipe at the moment. Pick a recipe to get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4a-Wc-1ml">
                                         <rect key="frame" x="78" y="214" width="219" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.47843137254901957" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -90,6 +90,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dge-wW-a9N">
                                 <rect key="frame" x="0.0" y="108" width="375" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="vY6-B9-TBl"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="sy4-2g-5BD"/>
@@ -185,7 +186,14 @@
                             <constraint firstAttribute="trailing" secondItem="yxl-po-mMJ" secondAttribute="trailing" id="fb1-ns-Kxi"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pick a recipe" id="pUo-Sz-UMN"/>
+                    <navigationItem key="navigationItem" title="Pick a recipe" id="pUo-Sz-UMN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="EaW-hK-M3m">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="dismissButtonTap:" destination="Mka-Sq-koe" id="1gO-w4-5t7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="recipeTemplatesTableView" destination="yxl-po-mMJ" id="5l4-0d-NjI"/>
                     </connections>
@@ -243,9 +251,10 @@
                                     <constraint firstItem="Qiv-51-TNl" firstAttribute="leading" secondItem="4DS-dn-uy3" secondAttribute="leadingMargin" id="spz-Yl-NP4"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eXn-kw-49t">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eXn-kw-49t">
                                 <rect key="frame" x="0.0" y="151" width="375" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="dataSource" destination="JUz-hg-C5R" id="b8w-RJ-0iz"/>
                                     <outlet property="delegate" destination="JUz-hg-C5R" id="zMM-GK-ZHJ"/>

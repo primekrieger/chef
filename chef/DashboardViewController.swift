@@ -20,7 +20,8 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recipesTableView.register(UINib(nibName: RecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: RecipeDashboardTableViewCell.cellReuseIdentifier)
+        recipesTableView.register(UINib(nibName: ActiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier)
+        recipesTableView.register(UINib(nibName: InactiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: InactiveRecipeDashboardTableViewCell.cellReuseIdentifier)
     }
     
     @IBAction func recipesSegmentedControlValueChanged(_ sender: UISegmentedControl) {
@@ -44,7 +45,7 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RecipeDashboardTableViewCell.cellReuseIdentifier) as! RecipeDashboardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier) as! ActiveRecipeDashboardTableViewCell
         return cell
     }
     

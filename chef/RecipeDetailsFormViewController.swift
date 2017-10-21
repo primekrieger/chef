@@ -33,6 +33,7 @@ class RecipeDetailsFormViewController: UIViewController {
         registerTableViewCells()
         configureRecipeToSave()
         recipeFormModel = (existingRecipe != nil) ? RecipeDetailsFormModel(withExistingRecipe: existingRecipe!) : RecipeDetailsFormModel(forFields: recipeToSave.formFields)
+        recipeDetailsFormTableView.tableFooterView = UIView()
     }
     
     private func registerTableViewCells() {

@@ -19,6 +19,11 @@ class PickRecipeViewController: UIViewController {
         recipeTemplatesTableView.register(UINib(nibName: RecipeTemplateTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier)
         recipeTemplatesTableView.tableFooterView = UIView()
     }
+    
+    @IBAction func dismissButtonTap(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension PickRecipeViewController: UITableViewDataSource, UITableViewDelegate {
