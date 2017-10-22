@@ -23,6 +23,7 @@ struct Constants {
         struct FormCells {
             static let amountTextFieldLabel = "Each action is worth"
             static let amountTextFieldPlaceholder = "Enter an amount"
+            static let alarmTimePickerLabel = "Alarm time"
         }
     }
     

@@ -118,7 +118,7 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
             cell.setup(delegate: self, field: field, value: recipeFormModel.amountString)
             return cell
         case .alarmTimePicker:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TimePickerTableViewCell.cellReuseIdentifier) as! TimePickerTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: LabelTextFieldTableViewCell.cellReuseIdentifier) as! LabelTextFieldTableViewCell
             cell.setup(delegate: self, field: field, value: recipeFormModel.alarmTime)
             return cell
         case .alarmRepetitionSelector:
