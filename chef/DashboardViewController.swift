@@ -16,34 +16,50 @@ class DashboardViewController: UIViewController {
     }
     
     @IBOutlet weak var recipesTableView: UITableView!
+    @IBOutlet weak var noRecipesLabel: UILabel!
     
     private var realmObserverToken: NotificationToken?
     
     fileprivate var recipesToDisplay = Manager.shared.getRecipes(filter: .active)
+    private var recipeStateToDisplay = RecipesSegmentedControlState.active
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recipesTableView.register(UINib(nibName: ActiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier)
         recipesTableView.register(UINib(nibName: InactiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: InactiveRecipeDashboardTableViewCell.cellReuseIdentifier)
         setupRecipesChangeObserver()
+        updateUI()
     }
     
     @IBAction func recipesSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        let recipesSegmentedControlState = RecipesSegmentedControlState(rawValue: sender.selectedSegmentIndex)!
-        
-        switch recipesSegmentedControlState {
+        recipeStateToDisplay = RecipesSegmentedControlState(rawValue: sender.selectedSegmentIndex)!
+        switch recipeStateToDisplay {
         case .active:
             recipesToDisplay = Manager.shared.getRecipes(filter: .active)
         case .inactive:
             recipesToDisplay = Manager.shared.getRecipes(filter: .inactive)
         }
-        
-        recipesTableView.reloadData()
+        updateUI()
     }
     
     private func setupRecipesChangeObserver() {
         realmObserverToken = recipesToDisplay.addNotificationBlock { [weak self] _ in
-            self?.recipesTableView.reloadData()
+            self?.updateUI()
+        }
+    }
+    
+    private func updateUI() {
+        if recipesToDisplay.count == 0 {
+            recipesTableView.isHidden = true
+            switch recipeStateToDisplay {
+            case .active:
+                noRecipesLabel.text = Constants.Strings.noActiveRecipesLabel
+            case .inactive:
+                noRecipesLabel.text = Constants.Strings.noInactiveRecipesLabel
+            }
+        } else {
+            recipesTableView.isHidden = false
+            recipesTableView.reloadData()
         }
     }
     

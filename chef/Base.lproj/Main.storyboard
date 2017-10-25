@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="478"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptr-Kq-4YQ">
-                                        <rect key="frame" x="147.5" y="119" width="80" height="80"/>
+                                        <rect key="frame" x="147.5" y="134" width="80" height="80"/>
                                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ptr-Kq-4YQ" secondAttribute="height" multiplier="1:1" id="hxE-mc-AcY"/>
@@ -72,8 +72,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No active recipe at the moment. Pick a recipe to get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4a-Wc-1ml">
-                                        <rect key="frame" x="78" y="214" width="219" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No active recipes at the moment. Pick a recipe to get started." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4a-Wc-1ml">
+                                        <rect key="frame" x="74" y="229" width="227" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.47843137254901957" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ptr-Kq-4YQ" firstAttribute="centerY" secondItem="SUg-jq-4fm" secondAttribute="centerY" constant="-80" id="3mY-Tz-kmH"/>
+                                    <constraint firstItem="ptr-Kq-4YQ" firstAttribute="centerY" secondItem="SUg-jq-4fm" secondAttribute="centerY" constant="-65" id="3mY-Tz-kmH"/>
                                     <constraint firstItem="ptr-Kq-4YQ" firstAttribute="centerX" secondItem="SUg-jq-4fm" secondAttribute="centerX" id="Tya-x6-J7f"/>
                                     <constraint firstItem="Q4a-Wc-1ml" firstAttribute="centerX" secondItem="SUg-jq-4fm" secondAttribute="centerX" id="auz-rM-lls"/>
                                     <constraint firstItem="Q4a-Wc-1ml" firstAttribute="top" secondItem="ptr-Kq-4YQ" secondAttribute="bottom" constant="15" id="rg0-bP-htE"/>
@@ -151,6 +151,7 @@
                         <barButtonItem key="backBarButtonItem" title="Dashboard" id="5Yc-qh-Nki"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="noRecipesLabel" destination="Q4a-Wc-1ml" id="vq6-ix-chv"/>
                         <outlet property="recipesTableView" destination="dge-wW-a9N" id="xme-OG-U1z"/>
                     </connections>
                 </viewController>
