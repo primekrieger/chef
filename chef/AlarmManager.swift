@@ -47,6 +47,7 @@ class AlarmManager: NSObject {
         var notificationIdentifiers = [String]()
         for i in 0..<7 {
             notificationIdentifiers.append(alarmUUID + String(i))
+            notificationIdentifiers.append(alarmUUID + String(i) + Constants.Alarm.snoozeSuffix)
         }
         notificationCenter.removePendingNotificationRequests(withIdentifiers: notificationIdentifiers)
     }
