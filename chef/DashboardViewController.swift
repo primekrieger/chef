@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class DashboardViewController: UIViewController {
     
@@ -16,12 +17,15 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet weak var recipesTableView: UITableView!
     
-    var recipesToDisplay = Manager.shared.getRecipes(filter: .active)
+    private var realmObserverToken: NotificationToken?
+    
+    fileprivate var recipesToDisplay = Manager.shared.getRecipes(filter: .active)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         recipesTableView.register(UINib(nibName: ActiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier)
         recipesTableView.register(UINib(nibName: InactiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: InactiveRecipeDashboardTableViewCell.cellReuseIdentifier)
+        setupRecipesChangeObserver()
     }
     
     @IBAction func recipesSegmentedControlValueChanged(_ sender: UISegmentedControl) {
@@ -35,6 +39,16 @@ class DashboardViewController: UIViewController {
         }
         
         recipesTableView.reloadData()
+    }
+    
+    private func setupRecipesChangeObserver() {
+        realmObserverToken = recipesToDisplay.addNotificationBlock { [weak self] _ in
+            self?.recipesTableView.reloadData()
+        }
+    }
+    
+    deinit {
+        realmObserverToken?.stop()
     }
 
 }
