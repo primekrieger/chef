@@ -47,7 +47,7 @@ class Manager: NSObject {
     }
     
     func snoozeAlarm(alarmRequestIdentifier: String, recipeIdentifier: String) {
-        // persistence manager save money
+        PersistenceManager.shared.triggerSave(forRecipeIdentifier: recipeIdentifier)
         AlarmManager().snooze(alarmRequestIdentifier: alarmRequestIdentifier, recipeIdentifier: recipeIdentifier)
     }
 }

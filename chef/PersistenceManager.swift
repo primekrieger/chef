@@ -55,4 +55,16 @@ class PersistenceManager: NSObject {
         return realm.objects(RecipeTemplate.self)
     }
     
+    func triggerSave(forRecipeIdentifier recipeIdentifier: String) {
+        do {
+            let realm = try Realm()
+            let recipe = realm.object(ofType: Recipe.self, forPrimaryKey: recipeIdentifier)
+            try realm.write {
+                recipe!.savedAmount += recipe!.amount
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
 }
