@@ -274,10 +274,10 @@
                                                 <constraint firstAttribute="height" constant="0.5" id="cnG-Aw-D7r"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FM-6m-9BZ">
-                                            <rect key="frame" x="15" y="14" width="46.5" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deactivate for now" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FM-6m-9BZ">
+                                            <rect key="frame" x="15" y="14" width="128.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="1" green="0.054901960784313725" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -319,12 +319,12 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="deactivateRecipeView" destination="tyy-d8-4VB" id="KN0-HQ-cuQ"/>
                         <outlet property="recipeDescriptionLabel" destination="JHe-I6-Izc" id="Tjf-Tm-lCe"/>
                         <outlet property="recipeDetailsFormTableView" destination="eXn-kw-49t" id="Qnl-Be-za1"/>
                         <outlet property="recipeNameLabel" destination="W5P-3E-69v" id="daJ-4U-9Iv"/>
                         <outlet property="recipeNameLabelBottomSpaceConstraint" destination="KcV-sw-qwK" id="bvR-0y-hcN"/>
-                        <outlet property="toggleRecipeActiveStateLabel" destination="6FM-6m-9BZ" id="yul-l8-ZXJ"/>
-                        <outlet property="toggleRecipeActiveStateView" destination="tyy-d8-4VB" id="Hwz-QC-zZW"/>
+                        <outlet property="saveButton" destination="LjH-l5-QsB" id="10b-3X-sFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xv9-qa-JFT" userLabel="First Responder" sceneMemberID="firstResponder"/>

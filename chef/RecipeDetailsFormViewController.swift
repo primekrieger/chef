@@ -15,12 +15,12 @@ protocol RecipeDetailsFormCellDelegate: class {
 class RecipeDetailsFormViewController: UIViewController {
     static let identifier = "RecipeDetailsFormViewController"
     
+    @IBOutlet weak private var saveButton: UIBarButtonItem!
     @IBOutlet weak private var recipeNameLabel: UILabel!
     @IBOutlet weak private var recipeDescriptionLabel: UILabel!
     @IBOutlet weak private var recipeDetailsFormTableView: UITableView!
     
-    @IBOutlet weak var toggleRecipeActiveStateView: UIView!
-    @IBOutlet weak var toggleRecipeActiveStateLabel: UILabel!
+    @IBOutlet weak private var deactivateRecipeView: UIView!
     
     @IBOutlet weak private var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
     
@@ -36,7 +36,7 @@ class RecipeDetailsFormViewController: UIViewController {
         registerTableViewCells()
         configureRecipeToSave()
         recipeFormModel = (existingRecipe != nil) ? RecipeDetailsFormModel(withExistingRecipe: existingRecipe!) : RecipeDetailsFormModel(forFields: recipeToSave.formFields)
-        configureToggleRecipeActiveStateView()
+        setupUI()
     }
     
     @IBAction func saveButtonTap(_ sender: UIBarButtonItem) {
@@ -72,12 +72,15 @@ class RecipeDetailsFormViewController: UIViewController {
         }
     }
     
-    private func configureToggleRecipeActiveStateView() {
+    private func setupUI() {
         if existingRecipe != nil {
-            recipeDetailsFormTableView.tableFooterView = toggleRecipeActiveStateView
-            toggleRecipeActiveStateLabel.text = existingRecipe!.isActive ? Constants.Strings.deactivateRecipe : Constants.Strings.activateRecipe
-            toggleRecipeActiveStateLabel.textColor = existingRecipe!.isActive ? Constants.Colors.deactivateRed : Constants.Colors.activateGreen
-            toggleRecipeActiveStateView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleRecipeActiveState)))
+            if existingRecipe!.isActive {
+                recipeDetailsFormTableView.tableFooterView = deactivateRecipeView
+                deactivateRecipeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleRecipeActiveState)))
+            } else {
+                saveButton.title = Constants.Strings.activateRecipeButtonTitle
+                recipeDetailsFormTableView.tableFooterView = UIView()
+            }
         } else {
             recipeDetailsFormTableView.tableFooterView = UIView()
         }
