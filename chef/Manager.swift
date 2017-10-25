@@ -21,6 +21,19 @@ class Manager: NSObject {
         }
     }
     
+    func toggleRecipeActiveState(forRecipe recipe: Recipe) {
+        PersistenceManager.shared.toggleRecipeActiveState(forRecipe: recipe)
+        
+        switch recipe.type {
+        case .lazySaving:
+            if recipe.isActive {
+                AlarmManager().scheduleAlarm(forRecipe: recipe)
+            } else {
+                AlarmManager().removeAlarm(alarmUUID: recipe.alarm!.uuid)
+            }
+        }
+    }
+    
     func getRecipes(filter: RecipeFilter) -> Results<Recipe> {
         return PersistenceManager.shared.getRecipes(filter: filter)
     }

@@ -23,7 +23,7 @@ class Recipe: Object {
     
     dynamic var uuid = NSUUID().uuidString
     dynamic var templateID = 0
-    dynamic var active = true
+    dynamic var isActive = true
     dynamic var amount = 0
     dynamic var alarm: Alarm?
     

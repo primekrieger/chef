@@ -19,6 +19,9 @@ class RecipeDetailsFormViewController: UIViewController {
     @IBOutlet weak private var recipeDescriptionLabel: UILabel!
     @IBOutlet weak private var recipeDetailsFormTableView: UITableView!
     
+    @IBOutlet weak var toggleRecipeActiveStateView: UIView!
+    @IBOutlet weak var toggleRecipeActiveStateLabel: UILabel!
+    
     @IBOutlet weak private var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
     
     var existingRecipe: Recipe?
@@ -33,7 +36,17 @@ class RecipeDetailsFormViewController: UIViewController {
         registerTableViewCells()
         configureRecipeToSave()
         recipeFormModel = (existingRecipe != nil) ? RecipeDetailsFormModel(withExistingRecipe: existingRecipe!) : RecipeDetailsFormModel(forFields: recipeToSave.formFields)
-        recipeDetailsFormTableView.tableFooterView = UIView()
+        configureToggleRecipeActiveStateView()
+    }
+    
+    @IBAction func saveButtonTap(_ sender: UIBarButtonItem) {
+        let (validationSuccessful, errorString) = recipeFormModel.validate()
+        if validationSuccessful {
+            saveRecipe()
+            dismissForm()
+        } else {
+            displayAlert(withMessage: errorString!)
+        }
     }
     
     private func registerTableViewCells() {
@@ -59,19 +72,25 @@ class RecipeDetailsFormViewController: UIViewController {
         }
     }
     
+    private func configureToggleRecipeActiveStateView() {
+        if existingRecipe != nil {
+            recipeDetailsFormTableView.tableFooterView = toggleRecipeActiveStateView
+            toggleRecipeActiveStateLabel.text = existingRecipe!.isActive ? Constants.Strings.deactivateRecipe : Constants.Strings.activateRecipe
+            toggleRecipeActiveStateLabel.textColor = existingRecipe!.isActive ? Constants.Colors.deactivateRed : Constants.Colors.activateGreen
+            toggleRecipeActiveStateView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleRecipeActiveState)))
+        } else {
+            recipeDetailsFormTableView.tableFooterView = UIView()
+        }
+    }
+    
+    @objc private func toggleRecipeActiveState() {
+        Manager.shared.toggleRecipeActiveState(forRecipe: existingRecipe!)
+        dismissForm()
+    }
+    
     private func compressHeaderView() {
         recipeDescriptionLabel.removeFromSuperview()
         recipeNameLabelBottomSpaceConstraint.constant = 10
-    }
-    
-    @IBAction func saveButtonTap(_ sender: UIButton) {
-        let (validationSuccessful, errorString) = recipeFormModel.validate()
-        if validationSuccessful {
-            saveRecipe()
-            navigationController?.popToRootViewController(animated: true)
-        } else {
-            displayAlert(withMessage: errorString!)
-        }
     }
     
     private func saveRecipe() {
@@ -95,6 +114,14 @@ class RecipeDetailsFormViewController: UIViewController {
         }
         
         Manager.shared.saveRecipe(recipeToSave)
+    }
+    
+    private func dismissForm() {
+        if existingRecipe != nil {
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     private func displayAlert(withMessage message: String) {

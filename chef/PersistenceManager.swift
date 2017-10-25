@@ -23,6 +23,17 @@ class PersistenceManager: NSObject {
         }
     }
     
+    func toggleRecipeActiveState(forRecipe recipe: Recipe) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                recipe.isActive = !recipe.isActive
+            }
+        } catch let error as NSError {
+            print(error)
+        }
+    }
+    
     func getRecipes(filter: RecipeFilter) -> Results<Recipe> {
         let queryString: String
         let realm = try! Realm()
@@ -31,9 +42,9 @@ class PersistenceManager: NSObject {
         case .all:
             return realm.objects(Recipe.self)
         case .active:
-            queryString = "active = true"
+            queryString = "isActive = true"
         case .inactive:
-            queryString = "active = false"
+            queryString = "isActive = false"
         }
         
         return realm.objects(Recipe.self).filter(queryString)

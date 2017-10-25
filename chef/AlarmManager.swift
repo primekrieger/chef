@@ -43,7 +43,7 @@ class AlarmManager: NSObject {
         }
     }
     
-    private func removeAlarm(alarmUUID: String) {
+    func removeAlarm(alarmUUID: String) {
         var notificationIdentifiers = [String]()
         for i in 0..<7 {
             notificationIdentifiers.append(alarmUUID + String(i))

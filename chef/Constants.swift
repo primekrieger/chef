@@ -25,6 +25,9 @@ struct Constants {
             static let amountTextFieldPlaceholder = "Enter an amount"
             static let alarmTimePickerLabel = "Alarm time"
         }
+        
+        static let activateRecipe = "Activate"
+        static let deactivateRecipe = "Deactivate for now"
     }
     
     struct Keys {
@@ -41,6 +44,8 @@ struct Constants {
     struct Colors {
         static let inactiveGray = UIColor(hex: "DDDDDD")
         static let borderGray = UIColor(hex: "CCCCCC")
+        static let activateGreen = UIColor(hex: "2FC147")
+        static let deactivateRed = UIColor(hex: "FF0E18")
     }
     
     struct Alarm {
