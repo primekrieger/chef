@@ -59,6 +59,7 @@ class RecipeDetailsFormViewController: UIViewController {
         if existingRecipe != nil {
             recipeToSave.uuid = existingRecipe!.uuid
             recipeToSave.templateID = existingRecipe!.templateID
+            recipeToSave.savedAmount = existingRecipe!.savedAmount
         } else {
             recipeToSave.templateID = recipeTemplate!.templateID
         }

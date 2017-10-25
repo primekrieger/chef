@@ -73,6 +73,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="amountLabel" destination="j19-Cu-Rk8" id="hC6-aX-hEp"/>
+                <outlet property="keyActionLabel" destination="1VH-D3-egh" id="m8g-4g-aNR"/>
+                <outlet property="recipeNameLabel" destination="A03-Mp-Fdq" id="5kE-vP-pNi"/>
+                <outlet property="savedAmountLabel" destination="Jga-8i-yTd" id="CUL-9i-oGP"/>
+            </connections>
             <point key="canvasLocation" x="34" y="25"/>
         </tableViewCell>
     </objects>

@@ -25,6 +25,7 @@ class Recipe: Object {
     dynamic var templateID = 0
     dynamic var isActive = true
     dynamic var amount = 0
+    dynamic var savedAmount = 0
     dynamic var alarm: Alarm?
     
     override static func primaryKey() -> String? {
