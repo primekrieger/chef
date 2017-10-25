@@ -12,6 +12,7 @@
 		0E4E0C091F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E0C071F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib */; };
 		0E4E0C0C1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4E0C0A1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift */; };
 		0E4E0C0D1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */; };
+		0E5ACA671FA12FF70026F0C3 /* GeneralUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */; };
 		0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */; };
 		0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59891F7069EF0062F4D6 /* Main.storyboard */; };
 		0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		0E4E0C071F9BBB5C00BBC352 /* ActiveRecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveRecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		0E4E0C0A1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InactiveRecipeDashboardTableViewCell.swift; sourceTree = "<group>"; };
 		0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InactiveRecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
+		0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtilities.swift; sourceTree = "<group>"; };
 		0E8E59821F7069EF0062F4D6 /* chef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E8E598A1F7069EF0062F4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */,
 				0E8E5A131F7560020062F4D6 /* Constants.swift */,
 				0E8E5A091F7410330062F4D6 /* Enums.swift */,
+				0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */,
 				0E9B5D011F818F3E003C6C7C /* AppSettings.swift */,
 				0E8E59BA1F72BF940062F4D6 /* Models */,
 				0E8E59BF1F72C1380062F4D6 /* Managers */,
@@ -364,6 +367,7 @@
 				0E9B5CF91F7941E5003C6C7C /* DayRepetitionSelectorTableViewCell.swift in Sources */,
 				0E8E5A0C1F7552AB0062F4D6 /* PickRecipeViewController.swift in Sources */,
 				0E8E5A261F769B280062F4D6 /* RecipeTemplate.swift in Sources */,
+				0E5ACA671FA12FF70026F0C3 /* GeneralUtilities.swift in Sources */,
 				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
 				0E9B5D021F818F3E003C6C7C /* AppSettings.swift in Sources */,
 				0E8E5A0A1F7410330062F4D6 /* Enums.swift in Sources */,

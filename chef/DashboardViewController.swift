@@ -21,7 +21,7 @@ class DashboardViewController: UIViewController {
     private var realmObserverToken: NotificationToken?
     
     fileprivate var recipesToDisplay = Manager.shared.getRecipes(filter: .active)
-    private var recipeStateToDisplay = RecipesSegmentedControlState.active
+    fileprivate var recipeStateToDisplay = RecipesSegmentedControlState.active
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,9 +75,16 @@ extension DashboardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier) as! ActiveRecipeDashboardTableViewCell
-        cell.setup(withRecipe: recipesToDisplay[indexPath.row])
-        return cell
+        switch recipeStateToDisplay {
+        case .active:
+            let cell = tableView.dequeueReusableCell(withIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier) as! ActiveRecipeDashboardTableViewCell
+            cell.setup(withRecipe: recipesToDisplay[indexPath.row])
+            return cell
+        case .inactive:
+            let cell = tableView.dequeueReusableCell(withIdentifier: InactiveRecipeDashboardTableViewCell.cellReuseIdentifier) as! InactiveRecipeDashboardTableViewCell
+            cell.setup(withRecipe: recipesToDisplay[indexPath.row])
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

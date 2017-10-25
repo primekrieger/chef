@@ -49,6 +49,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="keyActionLabel" destination="pi0-5r-eI7" id="l8k-uO-ZPD"/>
+                <outlet property="recipeNameLabel" destination="Aew-5S-Q2P" id="ubX-Jf-1fD"/>
+                <outlet property="savedAmountLabel" destination="808-Ys-B7b" id="j5o-Me-ktJ"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

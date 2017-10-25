@@ -13,9 +13,19 @@ class InactiveRecipeDashboardTableViewCell: UITableViewCell {
     static let nibName = "InactiveRecipeDashboardTableViewCell"
     static let cellReuseIdentifier = "inactiveRecipeDashboardTableViewCell"
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak private var recipeNameLabel: UILabel!
+    @IBOutlet weak private var savedAmountLabel: UILabel!
+    @IBOutlet weak private var keyActionLabel: UILabel!
+    
+    func setup(withRecipe recipe: Recipe) {
+        recipeNameLabel.text = recipe.type.displayName
+        savedAmountLabel.text = "₹\(recipe.savedAmount)"
+        
+        switch recipe.type {
+        case .lazySaving:
+            let alarmDetails = GeneralUtilities.getAlarmDetailsString(forAlarm: recipe.alarm!)
+            keyActionLabel.text = "Alarm - \(alarmDetails)"
+        }
     }
     
 }
