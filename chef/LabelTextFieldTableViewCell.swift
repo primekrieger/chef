@@ -33,7 +33,16 @@ class LabelTextFieldTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         textField.delegate = self
+        
+        let inputToolbar = UIToolbar()
+        inputToolbar.tintColor = .black
+        inputToolbar.sizeToFit()
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: Constants.Strings.inputToolbarDoneButtonTitle, style: UIBarButtonItemStyle.plain, target: self, action: #selector(inputToolbarDoneButtonTap))
+        inputToolbar.setItems([spaceButton, doneButton], animated: false)
+        textField.inputAccessoryView = inputToolbar
     }
     
     private func configureCell(value: Any) {
@@ -48,17 +57,27 @@ class LabelTextFieldTableViewCell: UITableViewCell {
             label.font = textField.font
             textField.leftView = label
             textField.leftViewMode = .always
+            
+            textField.inputView = nil
+            textField.keyboardType = .numberPad
         case .alarmTimePicker:
             textField.text = alarmTimeDateFormatter.string(from: value as! Date)
             titleLabel.text = Constants.Strings.FormCells.alarmTimePickerLabel
+            textField.placeholder = nil
+            textField.leftViewMode = .never
             
             let datePicker = UIDatePicker()
             datePicker.datePickerMode = .time
+            datePicker.backgroundColor = .white
             datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
             textField.inputView = datePicker
         default:
             break
         }
+    }
+    
+    func inputToolbarDoneButtonTap() {
+        textField.resignFirstResponder()
     }
     
     func datePickerValueChanged(_ sender: UIDatePicker) {

@@ -29,6 +29,7 @@ struct Constants {
         static let activateRecipeButtonTitle = "Activate"
         static let noActiveRecipesLabel = "No active recipes at the moment.\nPick a recipe to get started."
         static let noInactiveRecipesLabel = "No inactive recipes."
+        static let inputToolbarDoneButtonTitle = "Done"
     }
     
     struct Keys {

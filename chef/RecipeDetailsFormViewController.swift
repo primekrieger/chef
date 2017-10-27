@@ -33,6 +33,8 @@ class RecipeDetailsFormViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let dismissInputViewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissInputView))
+        view.addGestureRecognizer(dismissInputViewTapGestureRecognizer)
         registerTableViewCells()
         configureRecipeToSave()
         recipeFormModel = (existingRecipe != nil) ? RecipeDetailsFormModel(withExistingRecipe: existingRecipe!) : RecipeDetailsFormModel(forFields: recipeToSave.formFields)
@@ -47,6 +49,10 @@ class RecipeDetailsFormViewController: UIViewController {
         } else {
             displayAlert(withMessage: errorString!)
         }
+    }
+    
+    func dismissInputView() {
+        view.endEditing(true)
     }
     
     private func registerTableViewCells() {
