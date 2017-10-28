@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import UserNotifications
 
 class DashboardViewController: ChefBaseViewController {
     
@@ -25,6 +26,7 @@ class DashboardViewController: ChefBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        askNotificationsPermission()
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
         }
@@ -43,6 +45,32 @@ class DashboardViewController: ChefBaseViewController {
             recipesToDisplay = Manager.shared.getRecipes(filter: .inactive)
         }
         updateUI()
+    }
+    
+    private func askNotificationsPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if !granted {
+                self.displayPermissionAlert()
+            }
+        }
+    }
+    
+    private func displayPermissionAlert() {
+        let alert = UIAlertController(title: Constants.Strings.AlertMessages.notificationsPermissionTitle, message: Constants.Strings.AlertMessages.notificationsPermissionMessage, preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: Constants.Strings.AlertMessages.settingsAction, style: .default, handler: { _ in
+            guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+            if UIApplication.shared.canOpenURL(settingsURL) {
+                UIApplication.shared.open(settingsURL)
+            }
+        })
+        alert.addAction(settingsAction)
+        
+        let cancelAction = UIAlertAction(title: Constants.Strings.AlertMessages.cancelAction, style: .default, handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
     private func setupRecipesChangeObserver() {

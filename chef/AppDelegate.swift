@@ -12,19 +12,16 @@ import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if AppSettings.shared.isFirstLaunch {
             AppSettings.shared.isFirstLaunch = false
             setupMockData()
         }
         UNUserNotificationCenter.current().delegate = self
-        askNotificationsPermission()
         setNotificationCategory()
-        
         return true
     }
 
@@ -55,32 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                shortDescription: "Pay up each time you snooze on a wake up alarm. Guilty Pleasures.")
         
         Manager.shared.createMockData([lazySavingRecipe])
-    }
-    
-    private func askNotificationsPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
-            if !granted {
-                self.displayPermissionAlert()
-            }
-        }
-    }
-    
-    private func displayPermissionAlert() {
-        let alert = UIAlertController(title: Constants.Strings.AlertMessages.notificationsPermissionTitle, message: Constants.Strings.AlertMessages.notificationsPermissionMessage, preferredStyle: .alert)
-        
-        let settingsAction = UIAlertAction(title: Constants.Strings.AlertMessages.settingsAction, style: .default, handler: { _ in
-            guard let settingsURL = URL(string: UIApplicationOpenSettingsURLString) else {
-                return
-            }
-            if UIApplication.shared.canOpenURL(settingsURL) {
-                UIApplication.shared.open(settingsURL)
-            }
-        })
-        alert.addAction(settingsAction)
-        
-        let cancelAction = UIAlertAction(title: Constants.Strings.AlertMessages.cancelAction, style: .default, handler: nil)
-        alert.addAction(cancelAction)
-        window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     private func setNotificationCategory() {
