@@ -43,9 +43,11 @@ class RecipeDetailsFormModel: NSObject {
         for field in fields {
             validateField: switch field {
             case .amountTextField:
+                let minAmount = 250
+                let maxAmount = 1000
                 let amount = Int(amountString.trimmingCharacters(in: .whitespaces))
-                if amount == nil || amount! < 250 || amount! > 1000 {
-                    return (false, "Please enter an amount between 250 and 1000")
+                if amount == nil || amount! < minAmount || amount! > maxAmount {
+                    return (false, "Please enter an amount between \(minAmount.rupeeString()) and \(maxAmount.rupeeString()).")
                 }
             case .alarmTimePicker:
                 break
@@ -55,7 +57,7 @@ class RecipeDetailsFormModel: NSObject {
                         break validateField
                     }
                 }
-                return (false, "Please select at least one day for alarm repetition")
+                return (false, "Please select at least one day for alarm repetition.")
             }
         }
         return (true, nil)

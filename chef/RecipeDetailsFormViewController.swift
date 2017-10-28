@@ -135,7 +135,7 @@ class RecipeDetailsFormViewController: UIViewController {
     }
     
     private func displayAlert(withMessage message: String) {
-        let alert = UIAlertController(title: Constants.Strings.AlertMessages.title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: Constants.Strings.AlertMessages.validationErrorTitle, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Constants.Strings.AlertMessages.okAction, style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }

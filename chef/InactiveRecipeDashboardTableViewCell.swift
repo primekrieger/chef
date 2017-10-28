@@ -19,7 +19,7 @@ class InactiveRecipeDashboardTableViewCell: UITableViewCell {
     
     func setup(withRecipe recipe: Recipe) {
         recipeNameLabel.text = recipe.type.displayName
-        savedAmountLabel.text = "₹\(recipe.savedAmount)"
+        savedAmountLabel.text = recipe.savedAmount.rupeeString()
         
         switch recipe.type {
         case .lazySaving:

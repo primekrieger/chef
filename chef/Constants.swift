@@ -12,7 +12,7 @@ struct Constants {
     
     struct Strings {
         struct AlertMessages {
-            static let title = "Alert"
+            static let validationErrorTitle = "Uh-oh!"
             static let okAction = "OK"
             static let notificationsPermissionTitle = "Please allow notifications"
             static let notificationsPermissionMessage = "In Settings -> chef, turn on notifications"
@@ -30,6 +30,12 @@ struct Constants {
         static let noActiveRecipesLabel = "No active recipes at the moment.\nPick a recipe to get started."
         static let noInactiveRecipesLabel = "No inactive recipes."
         static let inputToolbarDoneButtonTitle = "Done"
+        static let rupeeSymbol = "₹"
+        static let nonBreakingSpace = " "
+    }
+    
+    struct Locales {
+        static let englishIndia = Locale(identifier: "en_IN")
     }
     
     struct Keys {

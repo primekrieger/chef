@@ -53,7 +53,7 @@ class LabelTextFieldTableViewCell: UITableViewCell {
             textField.placeholder = Constants.Strings.FormCells.amountTextFieldPlaceholder
             
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 12, height: 40))
-            label.text = "₹"
+            label.text = Constants.Strings.rupeeSymbol
             label.font = textField.font
             textField.leftView = label
             textField.leftViewMode = .always
