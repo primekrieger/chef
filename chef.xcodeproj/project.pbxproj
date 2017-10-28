@@ -40,6 +40,7 @@
 		0E9B5CFE1F79839C003C6C7C /* TimePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E9B5CFC1F79839C003C6C7C /* TimePickerTableViewCell.xib */; };
 		0E9B5D021F818F3E003C6C7C /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5D011F818F3E003C6C7C /* AppSettings.swift */; };
 		0E9B5D041F824572003C6C7C /* AlarmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9B5D031F824572003C6C7C /* AlarmManager.swift */; };
+		0EAE45581FA51E98006C7105 /* alarm_flute.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0EAE45571FA51E98006C7105 /* alarm_flute.mp3 */; };
 		0EB968331F93B7510033362A /* LabelTextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB968311F93B7510033362A /* LabelTextFieldTableViewCell.swift */; };
 		0EB968341F93B7510033362A /* LabelTextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB968321F93B7510033362A /* LabelTextFieldTableViewCell.xib */; };
 		BBE71BA48C3E6B342D58F042 /* Pods_chef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9479903F73E01DAAB8171CFC /* Pods_chef.framework */; };
@@ -81,6 +82,7 @@
 		0E9B5CFC1F79839C003C6C7C /* TimePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerTableViewCell.xib; sourceTree = "<group>"; };
 		0E9B5D011F818F3E003C6C7C /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		0E9B5D031F824572003C6C7C /* AlarmManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmManager.swift; sourceTree = "<group>"; };
+		0EAE45571FA51E98006C7105 /* alarm_flute.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm_flute.mp3; sourceTree = "<group>"; };
 		0EB968311F93B7510033362A /* LabelTextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		0EB968321F93B7510033362A /* LabelTextFieldTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelTextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		9479903F73E01DAAB8171CFC /* Pods_chef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,12 +135,13 @@
 				0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */,
 				0E8E5A131F7560020062F4D6 /* Constants.swift */,
 				0E8E5A091F7410330062F4D6 /* Enums.swift */,
-				0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */,
 				0E9B5D011F818F3E003C6C7C /* AppSettings.swift */,
+				0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */,
 				0E8E59BA1F72BF940062F4D6 /* Models */,
 				0E8E59BF1F72C1380062F4D6 /* Managers */,
-				0E8E5A1D1F756ACD0062F4D6 /* ViewControllers */,
 				0E8E5A1E1F756B000062F4D6 /* UI */,
+				0E4E0C031F9A2C7F00BBC352 /* Extensions */,
+				0EAE45561FA51E5E006C7105 /* SupportingElements */,
 				0E8E59941F7069EF0062F4D6 /* Info.plist */,
 			);
 			path = chef;
@@ -179,7 +182,7 @@
 		0E8E5A1E1F756B000062F4D6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0E4E0C031F9A2C7F00BBC352 /* Extensions */,
+				0E8E5A1D1F756ACD0062F4D6 /* ViewControllers */,
 				0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */,
 				0E8E59891F7069EF0062F4D6 /* Main.storyboard */,
 				0E8E59911F7069EF0062F4D6 /* LaunchScreen.storyboard */,
@@ -207,6 +210,14 @@
 				0E9B5CF81F7941E4003C6C7C /* DayRepetitionSelectorTableViewCell.xib */,
 			);
 			name = FormCells;
+			sourceTree = "<group>";
+		};
+		0EAE45561FA51E5E006C7105 /* SupportingElements */ = {
+			isa = PBXGroup;
+			children = (
+				0EAE45571FA51E98006C7105 /* alarm_flute.mp3 */,
+			);
+			name = SupportingElements;
 			sourceTree = "<group>";
 		};
 		647933795C71690D10947A1B /* Pods */ = {
@@ -299,6 +310,7 @@
 				0E8E5A2C1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib in Resources */,
 				0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */,
 				0E9B5CFA1F7941E5003C6C7C /* DayRepetitionSelectorTableViewCell.xib in Resources */,
+				0EAE45581FA51E98006C7105 /* alarm_flute.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,5 +64,6 @@ struct Constants {
         static let snoozeActionTitle = "Snooze"
         static let stopActionTitle = "Stop"
         static let snoozeSuffix = "Snooze"
+        static let soundFile = "alarm_flute.mp3"
     }
 }
