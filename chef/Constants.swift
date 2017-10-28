@@ -43,6 +43,7 @@ struct Constants {
             static let isFirstLaunch = "isFirstLaunch"
         }
         static let recipeIdentifier = "recipeIdentifier"
+        static let fadeNavBarTitle = "fadeNavBarTitle"
     }
     
     struct Storyboards {

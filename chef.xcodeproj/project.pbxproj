@@ -14,6 +14,9 @@
 		0E4E0C0D1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */; };
 		0E5ACA671FA12FF70026F0C3 /* GeneralUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */; };
 		0E763A0C1FA46E8000599878 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E763A0B1FA46E8000599878 /* Int+Extension.swift */; };
+		0E763A0E1FA47C0300599878 /* RecipeDetailsTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E763A0D1FA47C0300599878 /* RecipeDetailsTableHeaderView.swift */; };
+		0E763A101FA47C0C00599878 /* RecipeDetailsTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E763A0F1FA47C0C00599878 /* RecipeDetailsTableHeaderView.xib */; };
+		0E763A121FA4D8FE00599878 /* ChefBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E763A111FA4D8FE00599878 /* ChefBaseViewController.swift */; };
 		0E8E59861F7069EF0062F4D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */; };
 		0E8E598B1F7069EF0062F4D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E59891F7069EF0062F4D6 /* Main.storyboard */; };
 		0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E8E598F1F7069EF0062F4D6 /* Assets.xcassets */; };
@@ -50,6 +53,9 @@
 		0E4E0C0B1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InactiveRecipeDashboardTableViewCell.xib; sourceTree = "<group>"; };
 		0E5ACA661FA12FF70026F0C3 /* GeneralUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralUtilities.swift; sourceTree = "<group>"; };
 		0E763A0B1FA46E8000599878 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		0E763A0D1FA47C0300599878 /* RecipeDetailsTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsTableHeaderView.swift; sourceTree = "<group>"; };
+		0E763A0F1FA47C0C00599878 /* RecipeDetailsTableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailsTableHeaderView.xib; sourceTree = "<group>"; };
+		0E763A111FA4D8FE00599878 /* ChefBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefBaseViewController.swift; sourceTree = "<group>"; };
 		0E8E59821F7069EF0062F4D6 /* chef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E8E59851F7069EF0062F4D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E8E598A1F7069EF0062F4D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 		0E8E5A1D1F756ACD0062F4D6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0E763A111FA4D8FE00599878 /* ChefBaseViewController.swift */,
 				0E8E59C41F73D8C60062F4D6 /* DashboardViewController.swift */,
 				0E8E5A0B1F7552AA0062F4D6 /* PickRecipeViewController.swift */,
 				0E8E5A231F75703A0062F4D6 /* RecipeDetailsFormViewController.swift */,
@@ -183,6 +190,8 @@
 				0E8E5A291F769D090062F4D6 /* RecipeTemplateTableViewCell.swift */,
 				0E8E5A2A1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib */,
 				0E8E5A2F1F76F4310062F4D6 /* FormCells */,
+				0E763A0D1FA47C0300599878 /* RecipeDetailsTableHeaderView.swift */,
+				0E763A0F1FA47C0C00599878 /* RecipeDetailsTableHeaderView.xib */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -284,6 +293,7 @@
 				0EB968341F93B7510033362A /* LabelTextFieldTableViewCell.xib in Resources */,
 				0E4E0C0D1F9BBB7900BBC352 /* InactiveRecipeDashboardTableViewCell.xib in Resources */,
 				0E8E59931F7069EF0062F4D6 /* LaunchScreen.storyboard in Resources */,
+				0E763A101FA47C0C00599878 /* RecipeDetailsTableHeaderView.xib in Resources */,
 				0E8E59901F7069EF0062F4D6 /* Assets.xcassets in Resources */,
 				0E9B5CFE1F79839C003C6C7C /* TimePickerTableViewCell.xib in Resources */,
 				0E8E5A2C1F769D090062F4D6 /* RecipeTemplateTableViewCell.xib in Resources */,
@@ -374,10 +384,12 @@
 				0E8E59BC1F72C0070062F4D6 /* Alarm.swift in Sources */,
 				0E763A0C1FA46E8000599878 /* Int+Extension.swift in Sources */,
 				0E9B5D021F818F3E003C6C7C /* AppSettings.swift in Sources */,
+				0E763A0E1FA47C0300599878 /* RecipeDetailsTableHeaderView.swift in Sources */,
 				0E8E5A0A1F7410330062F4D6 /* Enums.swift in Sources */,
 				0E8E59BE1F72C0CD0062F4D6 /* Recipe.swift in Sources */,
 				0E8E5A241F75703A0062F4D6 /* RecipeDetailsFormViewController.swift in Sources */,
 				0E4E0C051F9A2CB400BBC352 /* UIColor+Extension.swift in Sources */,
+				0E763A121FA4D8FE00599878 /* ChefBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

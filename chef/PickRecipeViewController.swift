@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PickRecipeViewController: UIViewController {
+class PickRecipeViewController: ChefBaseViewController {
     
     @IBOutlet weak var recipeTemplatesTableView: UITableView!
     
@@ -16,6 +16,7 @@ class PickRecipeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideSystemNavBarShadow(true)
         recipeTemplatesTableView.register(UINib(nibName: RecipeTemplateTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: RecipeTemplateTableViewCell.cellReuseIdentifier)
         recipeTemplatesTableView.tableFooterView = UIView()
     }

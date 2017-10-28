@@ -12,24 +12,26 @@ protocol RecipeDetailsFormCellDelegate: class {
     func valueChanged(forField field: RecipeDetailsFormField, newValue: Any)
 }
 
-class RecipeDetailsFormViewController: UIViewController {
+class RecipeDetailsFormViewController: ChefBaseViewController {
     static let identifier = "RecipeDetailsFormViewController"
     
     @IBOutlet weak private var saveButton: UIBarButtonItem!
-    @IBOutlet weak private var recipeNameLabel: UILabel!
-    @IBOutlet weak private var recipeDescriptionLabel: UILabel!
-    @IBOutlet weak private var recipeDetailsFormTableView: UITableView!
-    
+    @IBOutlet weak fileprivate var recipeDetailsFormTableView: UITableView!
     @IBOutlet weak private var deactivateRecipeView: UIView!
-    
-    @IBOutlet weak private var recipeNameLabelBottomSpaceConstraint: NSLayoutConstraint!
     
     var existingRecipe: Recipe?
     var recipeTemplate: RecipeTemplate?
     
-    private let recipeToSave = Recipe()
-
+    fileprivate let recipeToSave = Recipe()
     fileprivate var recipeFormModel: RecipeDetailsFormModel!
+    
+    fileprivate var isTitleVisible = false
+    fileprivate lazy var fadeAnimation: CATransition = {
+        let animation = CATransition()
+        animation.duration = 0.2
+        animation.type = kCATransitionFade
+        return animation
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +83,7 @@ class RecipeDetailsFormViewController: UIViewController {
     
     private func setupUI() {
         if existingRecipe != nil {
+            showTitle(true)
             if existingRecipe!.isActive {
                 recipeDetailsFormTableView.tableFooterView = deactivateRecipeView
                 deactivateRecipeView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleRecipeActiveState)))
@@ -89,18 +92,24 @@ class RecipeDetailsFormViewController: UIViewController {
                 recipeDetailsFormTableView.tableFooterView = UIView()
             }
         } else {
+            let recipeDetailsTableHeaderView = RecipeDetailsTableHeaderView(frame: CGRect(x: 0, y: 0, width: recipeDetailsFormTableView.frame.width, height: RecipeDetailsTableHeaderView.height))
+            recipeDetailsTableHeaderView.setup(displayName: recipeTemplate!.type.displayName, shortDescription: recipeTemplate!.shortDescription)
+            recipeDetailsFormTableView.tableHeaderView = recipeDetailsTableHeaderView
             recipeDetailsFormTableView.tableFooterView = UIView()
         }
     }
     
-    @objc private func toggleRecipeActiveState() {
-        Manager.shared.toggleRecipeActiveState(forRecipe: existingRecipe!)
-        dismissForm()
+    fileprivate func showTitle(_ show: Bool) {
+        if show != isTitleVisible {
+            navigationController?.navigationBar.layer.add(fadeAnimation, forKey: Constants.Keys.fadeNavBarTitle)
+            title = show ? recipeToSave.type.displayName : nil
+            isTitleVisible = show
+        }
     }
     
-    private func compressHeaderView() {
-        recipeDescriptionLabel.removeFromSuperview()
-        recipeNameLabelBottomSpaceConstraint.constant = 10
+    func toggleRecipeActiveState() {
+        Manager.shared.toggleRecipeActiveState(forRecipe: existingRecipe!)
+        dismissForm()
     }
     
     private func saveRecipe() {
@@ -142,7 +151,7 @@ class RecipeDetailsFormViewController: UIViewController {
 
 }
 
-extension RecipeDetailsFormViewController: UITableViewDataSource {
+extension RecipeDetailsFormViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return recipeFormModel.fields.count
     }
@@ -164,6 +173,15 @@ extension RecipeDetailsFormViewController: UITableViewDataSource {
             return cell
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if existingRecipe == nil {
+            let yOffset = recipeDetailsFormTableView.contentOffset.y
+            hideSystemNavBarShadow(yOffset < RecipeDetailsTableHeaderView.height)
+            showTitle(yOffset > RecipeDetailsTableHeaderView.height / 3)
+        }
+    }
+    
 }
 
 extension RecipeDetailsFormViewController: RecipeDetailsFormCellDelegate {

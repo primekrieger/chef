@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: ChefBaseViewController {
     
     enum RecipesSegmentedControlState: Int {
         case active, inactive
@@ -25,6 +25,9 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
         recipesTableView.register(UINib(nibName: ActiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier)
         recipesTableView.register(UINib(nibName: InactiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: InactiveRecipeDashboardTableViewCell.cellReuseIdentifier)
         setupRecipesChangeObserver()
