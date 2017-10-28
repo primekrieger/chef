@@ -61,12 +61,14 @@ class LabelTextFieldTableViewCell: UITableViewCell {
             textField.inputView = nil
             textField.keyboardType = .numberPad
         case .alarmTimePicker:
-            textField.text = alarmTimeDateFormatter.string(from: value as! Date)
+            let alarmTime = value as! Date
+            textField.text = alarmTimeDateFormatter.string(from: alarmTime)
             titleLabel.text = Constants.Strings.FormCells.alarmTimePickerLabel
             textField.placeholder = nil
             textField.leftViewMode = .never
             
             let datePicker = UIDatePicker()
+            datePicker.date = alarmTime
             datePicker.datePickerMode = .time
             datePicker.backgroundColor = .white
             datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
