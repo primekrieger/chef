@@ -11,9 +11,9 @@ import UIKit
 class RecipeDetailsFormModel: NSObject {
     let fields: [RecipeDetailsFormField]
     
-    var amountString = ""
+    var amountString = String()
     var alarmTime = Date()
-    var shouldRepeatAlarmOnDays = [Bool](repeating: true, count: 7)
+    var shouldRepeatAlarmOnDays = [false, true, true, true, true, true, false]
     
     init(withExistingRecipe recipe: Recipe) {
         self.fields = recipe.formFields
@@ -43,11 +43,11 @@ class RecipeDetailsFormModel: NSObject {
         for field in fields {
             validateField: switch field {
             case .amountTextField:
-                let minAmount = 250
+                let minAmount = 50
                 let maxAmount = 1000
                 let amount = Int(amountString.trimmingCharacters(in: .whitespaces))
                 if amount == nil || amount! < minAmount || amount! > maxAmount {
-                    return (false, "Please enter an amount between \(minAmount.rupeeString()) and \(maxAmount.rupeeString()).")
+                    return (false, "Please enter an amount between \(minAmount.toRupeeString()) and \(maxAmount.toRupeeString()).")
                 }
             case .alarmTimePicker:
                 break

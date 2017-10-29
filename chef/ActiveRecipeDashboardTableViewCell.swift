@@ -20,13 +20,13 @@ class ActiveRecipeDashboardTableViewCell: UITableViewCell {
     
     func setup(withRecipe recipe: Recipe) {
         recipeNameLabel.text = recipe.type.displayName
-        savedAmountLabel.text = recipe.savedAmount.rupeeString()
+        savedAmountLabel.text = recipe.savedAmount == 0 ? "–" : recipe.savedAmount.toRupeeString()
         
         switch recipe.type {
         case .lazySaving:
             let alarmDetails = GeneralUtilities.getAlarmDetailsString(forAlarm: recipe.alarm!)
             keyActionLabel.text = "Alarm - \(alarmDetails)"
-            amountLabel.text = "Pay up \(recipe.amount.rupeeString()) on each snooze"
+            amountLabel.text = "Pay up \(recipe.amount.toRupeeString()) on each snooze"
         }
     }
     

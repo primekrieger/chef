@@ -32,6 +32,7 @@ class DashboardViewController: ChefBaseViewController {
         }
         recipesTableView.register(UINib(nibName: ActiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: ActiveRecipeDashboardTableViewCell.cellReuseIdentifier)
         recipesTableView.register(UINib(nibName: InactiveRecipeDashboardTableViewCell.nibName, bundle: nil), forCellReuseIdentifier: InactiveRecipeDashboardTableViewCell.cellReuseIdentifier)
+        recipesTableView.tableFooterView = UIView()
         setupRecipesChangeObserver()
         updateUI()
     }
@@ -80,8 +81,8 @@ class DashboardViewController: ChefBaseViewController {
     }
     
     private func updateUI() {
-        if recipesToDisplay.count == 0 {
-            recipesTableView.isHidden = true
+        recipesTableView.isHidden = recipesToDisplay.count == 0
+        if recipesTableView.isHidden {
             switch recipeStateToDisplay {
             case .active:
                 noRecipesLabel.text = Constants.Strings.noActiveRecipesLabel
@@ -89,7 +90,6 @@ class DashboardViewController: ChefBaseViewController {
                 noRecipesLabel.text = Constants.Strings.noInactiveRecipesLabel
             }
         } else {
-            recipesTableView.isHidden = false
             recipesTableView.reloadData()
         }
     }

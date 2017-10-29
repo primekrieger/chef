@@ -19,7 +19,7 @@ class InactiveRecipeDashboardTableViewCell: UITableViewCell {
     
     func setup(withRecipe recipe: Recipe) {
         recipeNameLabel.text = recipe.type.displayName
-        savedAmountLabel.text = recipe.savedAmount.rupeeString()
+        savedAmountLabel.text = recipe.savedAmount == 0 ? "–" : recipe.savedAmount.toRupeeString()
         
         switch recipe.type {
         case .lazySaving:

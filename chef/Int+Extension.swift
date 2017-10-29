@@ -9,7 +9,7 @@
 import Foundation
 
 extension Int {
-    func rupeeString() -> String {
+    func toRupeeString() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.minimumFractionDigits = 0
