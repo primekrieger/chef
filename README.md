@@ -11,7 +11,7 @@
 ## Running the app on a device
 1. Open **chef.xcworkspace**
 2. Select **chef** from the project navigator pane on left.
-3. Change **Bundle Identifier** from **com.primekrieger.chef** to **com.<your_identifier>.chef**
+3. Change **Bundle Identifier** from **com.primekrieger.chef** to **com.\<your_identifier\>.chef**
 4. Change **Team** to your personal team.
 5. Select the connected device.
 6. Use <kbd>⌘ + R</kbd> to launch the app.
